@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
            this.memeTag1 = memeTag1;
            this.memeTag2 = memeTag2;
            this.memeTag3 = memeTag3;
-           this.PP = "0";
+           this.PP = 0;
         }
 
 
@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         memePic.appendChild(memePicNode);
 
         let buttonPP = document.createElement("BUTTON");
+        buttonPP.setAttribute("class", "bigppButton");
         buttonPP.innerHTML = "PP";
 
         let showPP = document.createElement("p");
@@ -49,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         showPP.appendChild(showPPNode)
 
         let buttonpp = document.createElement("BUTTON");
+        buttonpp.setAttribute("class", "smallppButton");
         buttonpp.innerHTML = "pp";
 
 
