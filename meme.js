@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         }
     }
-    document.getElementById("homeN").onclick = function() {fillTheScreen(memeHomeButton)};
+    document.getElementById("homeNAV").onclick = function() {fillTheScreen(memeHomeButton)};
     document.getElementById("fakenewsNAV").onclick = function() {fillTheScreen(memeFakenews)};
     document.getElementById("idolsNAV").onclick = function() {fillTheScreen(memeIdols)};
     document.getElementById("none_humanNAV").onclick = function() {fillTheScreen(memeNonHuman)};
