@@ -156,6 +156,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     function fillTheScreen(params) {
         //https://stackoverflow.com/questions/3450593/how-do-i-clear-the-content-of-a-div-using-javascript
         let div = document.getElementById('inspiration');
+        location.href = "#youtube_section";
+
         while (div.firstChild) {
             div.removeChild(div.firstChild);
         }
