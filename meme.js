@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function (event) {
+ let position = 1; //global Variable for Meme of the day Funktion
 
     class Meme {
         constructor(memeCategory, memeName, memePic, memeDescription, memeTag1, memeTag2, memeTag3) {
@@ -68,8 +69,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     const memeMeme = new Meme();
 
-    let memeHomeButton = [];
-    memeHomeButton[0]= "Meme of the Day";
+
+
 
     let memeFakenews = [];
     memeFakenews[0]= "FakeNews";
@@ -133,11 +134,30 @@ document.addEventListener("DOMContentLoaded", function (event) {
     memeBad_hair_day [0] = "Bad Hair Day";
     memeBad_hair_day[1]= new Meme("bad hair day", "pickle hair", "pickleHair.jpg", "sample text", "","pickle","");
 
-    function fillTheScreen(params)
-    {
+    let memeHomeButton = [];
+    memeHomeButton[0]= "Meme of the Day";
+    let wordForMemeOfTheDay = "pickle"
+    getMemesOfTheDay(memeFakenews, wordForMemeOfTheDay);
+    getMemesOfTheDay(memeIdols, wordForMemeOfTheDay);
+    getMemesOfTheDay(memeNonHuman, wordForMemeOfTheDay);
+    getMemesOfTheDay(memeSciencebusters, wordForMemeOfTheDay);
+    getMemesOfTheDay(memeDaily_Cat_Facts, wordForMemeOfTheDay);
+    getMemesOfTheDay(memeHystorical, wordForMemeOfTheDay);
+    getMemesOfTheDay(memeMinime_me, wordForMemeOfTheDay);
+    getMemesOfTheDay(memeIkea, wordForMemeOfTheDay);
+    getMemesOfTheDay(memeTrending, wordForMemeOfTheDay);
+    getMemesOfTheDay(memeLatest, wordForMemeOfTheDay);
+    getMemesOfTheDay(memeBestOf, wordForMemeOfTheDay);
+    getMemesOfTheDay(memeZnarf, wordForMemeOfTheDay);
+    getMemesOfTheDay(memeBad_hair_day, wordForMemeOfTheDay);
+
+
+
+    function fillTheScreen(params) {
         //https://stackoverflow.com/questions/3450593/how-do-i-clear-the-content-of-a-div-using-javascript
         let div = document.getElementById('inspiration');
-        while(div.firstChild){div.removeChild(div.firstChild);
+        while (div.firstChild) {
+            div.removeChild(div.firstChild);
         }
 
         let category = document.createElement("h1");
@@ -148,11 +168,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
         for (let i = 1; i < params.length; i++) {
             memeMeme.addMemeToScreen(params[i]);
         }
+    }
 
-        function getMemesOfTheDay(params){
 
+        function getMemesOfTheDay(memeArrays, nameLookFor){
+
+            for (let i = 1 ; i < memeArrays.length; i++) {
+              if (memeArrays[i].memeTag1 === nameLookFor || memeArrays[i].memeTag2 === nameLookFor || memeArrays[i].memeTag2 === nameLookFor  ){
+                  memeHomeButton[position] = memeArrays[i];
+                  position ++;
+              }
         }
     }
+
     document.getElementById("homeNAV").onclick = function() {fillTheScreen(memeHomeButton)};
     document.getElementById("fakenewsNAV").onclick = function() {fillTheScreen(memeFakenews)};
     document.getElementById("idolsNAV").onclick = function() {fillTheScreen(memeIdols)};
