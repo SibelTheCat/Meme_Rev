@@ -68,57 +68,70 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     const memeMeme = new Meme();
 
-    let memeHome = [];
-    memeHome[0]= "Meme of the Day";
+    let memeHomeButton = [];
+    memeHomeButton[0]= "Meme of the Day";
 
     let memeFakenews = [];
     memeFakenews[0]= "FakeNews";
     memeFakenews[1]= new Meme("fakenews", "Trump", "f4f.jpg", "sample text", "","","");
+    memeFakenews[2]= new Meme("fakenews", "PickleTrump", "PickleFakeNews.jpg", "sample text", "pickle","","");
 
     let memeIdols = [];
     memeIdols [0] = "Idols";
+    memeIdols [1]= new Meme("idols", "PickleIdol", "pickleIdol.jpg", "sample text", "","","pickle");
 
     let memeNonHuman = [];
     memeNonHuman [0] = "Non Human";
+    memeNonHuman[1]= new Meme("non human", "Pickle Girlfriend", "pickleNonHum.jpg", "sample text", "","pickle","");
 
     let memeSciencebusters = [];
     memeSciencebusters [0] = "Sciencebusters";
+    memeSciencebusters [1]= new Meme("scienceBusters", "Pickle Science", "PickleScience.jpg", "sample text", "pickle","","");
 
     let memeDaily_Cat_Facts = [];
     memeDaily_Cat_Facts [0] = "Daily Cat Facts";
     memeDaily_Cat_Facts[1]= new Meme ("daily_cat_facts", "grumpy cat", "images-7.jpeg", "sample texts", "", "", "");
+    memeDaily_Cat_Facts[2]= new Meme("daily_cat_facts", "pickle kitty", "PickleCat.jpg", "sample text", "","pickle","");
 
     let memeHystorical = [];
     memeHystorical [0] = "Hystorical";
-    memeHystorical[1] = new Meme("hystorical", "sampel Name", "art1.png", "sample Text", "", "", "");
-    memeHystorical[2] = new Meme("hystorical", "sampel Name", "art2.png", "sample Text", "", "", "");
+    memeHystorical[1] = new Meme("hystorical", "sample Name", "art1.png", "sample Text", "", "", "");
+    memeHystorical[2] = new Meme("hystorical", "sample Name", "art2.png", "sample Text", "", "", "");
     memeHystorical[3] = new Meme("hystorical", "sampel Name", "art5.png", "sample Text", "", "", "");
     memeHystorical[4] = new Meme("hystorical", "sampel Name", "hystorical.png", "sample Text", "", "", "");
+    memeHystorical[5]= new Meme("hystorical", "pickle art", "PickleArt.jpg", "sample text", "","","pickle");
 
     let memeMinime_me = [];
     memeMinime_me [0] = "Minime-me";
+    memeMinime_me [1]= new Meme("minime-me", "pickleme", "Picklemememe.jpg", "sample text", "","","pickle");
 
     let memeIkea = [];
     memeIkea [0] = "Ikea";
     memeIkea[1] = new Meme("ikea-memes", "sampel Name", "ikea1.png", "sample Text", "", "", "");
     memeIkea[2] = new Meme("ikea-memes", "sampel Name", "ikea2.png", "sample Text", "", "", "");
     memeIkea[3] = new Meme("ikea-memes", "sampel Name", "ikea3.png", "sample Text", "", "", "");
-    memeIkea[4] = new Meme("ikea-memes", "sampel Name", "ikea4.png", "sample Text", "", "", "");
+    memeIkea[4]= new Meme("ikea-memes", "Pickle at Ikea", "PickleIkea.jpg", "sample text", "","pickle","");
+    memeIkea[5] = new Meme("ikea-memes", "sampel Name", "ikea4.png", "sample Text", "", "", "");
 
     let memeTrending = [];
     memeTrending [0] = "Trending";
+    memeTrending [1]= new Meme("trending", "Pickle Trend", "PickleTrend.jpg", "sample text", "","","pickle");
 
     let memeLatest = [];
     memeLatest [0] = "Latest";
+    memeLatest [1]= new Meme("latest", "the lastest pickle shit", "pickleLatest.jpg", "sample text", "pickle","","");
 
     let memeBestOf = [];
     memeBestOf [0] = "Best of";
+    memeBestOf[1]= new Meme("best Of", "Best of pickle", "pickleBestof.jpg", "sample text", "","pickle","");
 
     let memeZnarf = [];
     memeZnarf [0] = "Znarf";
+    memeZnarf[1]= new Meme("znarf", "piiiickle", "pickleSnarf.jpg", "sample text", "","","pickle");
 
     let memeBad_hair_day = [];
     memeBad_hair_day [0] = "Bad Hair Day";
+    memeBad_hair_day[1]= new Meme("bad hair day", "pickle hair", "pickleHair.jpg", "sample text", "","pickle","");
 
     function fillTheScreen(params)
     {
@@ -135,8 +148,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         for (let i = 1; i < params.length; i++) {
             memeMeme.addMemeToScreen(params[i]);
         }
+
+        function getMemesOfTheDay(params){
+
+        }
     }
-    document.getElementById("homeNAV").onclick = function() {fillTheScreen(memeHome)};
+    document.getElementById("homeN").onclick = function() {fillTheScreen(memeHomeButton)};
     document.getElementById("fakenewsNAV").onclick = function() {fillTheScreen(memeFakenews)};
     document.getElementById("idolsNAV").onclick = function() {fillTheScreen(memeIdols)};
     document.getElementById("none_humanNAV").onclick = function() {fillTheScreen(memeNonHuman)};
