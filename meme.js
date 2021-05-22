@@ -181,6 +181,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     }
 
+    fillTheScreen(memeHomeButton);
+
     document.getElementById("homeNAV").onclick = function() {fillTheScreen(memeHomeButton)};
     document.getElementById("fakenewsNAV").onclick = function() {fillTheScreen(memeFakenews)};
     document.getElementById("idolsNAV").onclick = function() {fillTheScreen(memeIdols)};
