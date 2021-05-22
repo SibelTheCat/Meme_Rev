@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
 
 
-    addMeemToScreen(meme) {
+    addMemeToScreen(meme) {
 
         let mainNode = document.getElementById("inspiration");
         let article = document.createElement("article");
@@ -79,13 +79,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
     meme[8] = new Meme("ikea-memes", "sampel Name", "ikea3.png", "sample Text", "", "", "");
     meme[9] = new Meme("ikea-memes", "sampel Name", "ikea4.png", "sample Text", "", "", "");
 
-    memeMeme.addMeemToScreen(meme[0]);
-    memeMeme.addMeemToScreen(meme[1]);
-    memeMeme.addMeemToScreen(meme[2]);
-    memeMeme.addMeemToScreen(meme[3]);
-    memeMeme.addMeemToScreen(meme[4]);
-    memeMeme.addMeemToScreen(meme[5]);
-    memeMeme.addMeemToScreen(meme[6]);
-    memeMeme.addMeemToScreen(meme[7]);
+    memeMeme.addMemeToScreen(meme[0]);
+    memeMeme.addMemeToScreen(meme[1]);
+    memeMeme.addMemeToScreen(meme[2]);
+    memeMeme.addMemeToScreen(meme[3]);
+    memeMeme.addMemeToScreen(meme[4]);
+    memeMeme.addMemeToScreen(meme[5]);
+    memeMeme.addMemeToScreen(meme[6]);
+    memeMeme.addMemeToScreen(meme[7]);
 
 });

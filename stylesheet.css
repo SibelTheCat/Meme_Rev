@@ -1,0 +1,77 @@
+body {
+    background-image: url("pewdsDesign.png");
+    background-size: cover;
+}
+header {
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    z-index: 1;
+    clear: both;
+
+    padding: 10px;
+    text-align: center;
+    font-family: Impact;
+    font-size: 50px;
+    color: #21a8e8;
+    text-transform: uppercase;
+}
+
+.clappinghands {
+    align-content: center;
+    max-height: 50px;
+}
+
+
+nav {
+    position: fixed;
+    width: 200px;
+    top: 100px;
+    height: 100%;
+    background-color: lightyellow;
+    padding-top: 20px;
+}
+
+main {
+    position: absolute;
+    text-align: center;
+    overflow: auto;
+    top: 60px;
+    left: 150px;
+    bottom: 80px;
+    padding: 10px;
+}
+
+section img:nth-child(1) {
+    max-width: 50%;
+    alignment: center;
+}
+
+.memePicture {
+    max-width: 300px;
+}
+
+aside {
+    position: fixed;
+    font-family: "Comic Sans MS";
+    float: right;
+    right: 0;
+    top: 50px;
+    width: 200px;
+    height: 100%;
+    padding: 10px;
+    margin: 0;
+}
+
+footer {
+    background-color: lightgray;
+    text-align: center;
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    clear: both;
+    bottom: 0;
+    line-height: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
