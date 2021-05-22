@@ -1,21 +1,41 @@
 * {
     margin: 0px;
+/*  box-sizing: border-box;  */
+}
 
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: rgba(135, 95, 95, 0);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: rgba(245, 245, 245, 0);
+}
+
+::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #5f5757;
 }
 
 body {
     background-image: url("pewdsDesign.png");
+    background-attachment: fixed;
     background-size: cover;
+    overflow: auto;
 }
 header {
     width: 100%;
-    height: 100px;
+    height: 120px;
     position: fixed;
     z-index: 1;
     clear: both;
     top: 15px;
     bottom: 15px;
-    padding-bottom: 20px;
     text-align: center;
     font-family: Impact;
     font-size: 50px;
@@ -29,30 +49,46 @@ header {
     max-height: 50px;
 }
 
-
 nav {
     position: fixed;
     width: 200px;
     top: 150px;
-    height: fit-content;
+    height: 70%;
     background-color: black;
     padding-top: 10px;
     padding-bottom: 10px;
     left: 5px;
     color: white;
+    overflow: auto;
+}
+
+nav h2 {
+    padding-left: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding-top: 10px;
+}
+
+nav li:nth-child(1) {
+    visibility: hidden;
+}
+nav li {
+    background: url("pewdiepie-brofist-transparent-pewdiepie-logo-hd-png-download.png") no-repeat left center;
+    background-size: 20px;
+    height: 15px;
+    padding: 10px 20px;
 }
 
 main {
     position: absolute;
     text-align: center;
-    overflow: auto;
-    top: 130px;
+    top: 140px;
     left: 150px;
-    bottom: 30px;
+    bottom: 40px;
     padding: 10px;
 }
-/*display: flex;*/
-/*img:nth-child(1)*/
 
 section img {
     max-width: 50%;
@@ -79,17 +115,46 @@ aside img {
     width: 150px;
 }
 
+aside.h2 {
+    position: center;
+}
+
 footer {
     background-color: black;
     text-align: center;
     width: 100%;
     height: 20px;
     line-height: 10px;
-    position: absolute;
+    position: fixed;
     clear: both;
     bottom: 0;
     line-height: 10px;
-
     padding-top: 5px;
     color: white;
+}
+
+#log_in {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.loginfist {
+    position: fixed;
+    top: 10px;
+    right: 50px;
+    transform: rotate(-20deg);
+}
+
+.loginwriting {
+    position: fixed;
+    top: 36px;
+    right: 110px;
+    transform: rotate(-25deg);
+    z-index: 2;
+}
+
+#signup {
+    color: white;
+    position: fixed;
 }
