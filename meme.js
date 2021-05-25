@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
 
 
+
+
         addMemeToScreen(meme) {
 
             let mainNode = document.getElementById("inspiration");
@@ -44,14 +46,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             let buttonPP = document.createElement("BUTTON");
             buttonPP.setAttribute("class", "bigppButton");
+            buttonPP.id =meme.memeName+"PP";
+            //buttonPP.addEventListener("click", meme.incrementValue(meme.PP, meme.memeName));
             buttonPP.innerHTML = "PP";
 
             let showPP = document.createElement("p");
             let showPPNode = document.createTextNode(meme.PP);
-            showPP.appendChild(showPPNode)
+            showPPNode.id=meme.memeName;
+            showPP.appendChild(showPPNode);
 
             let buttonpp = document.createElement("BUTTON");
             buttonpp.setAttribute("class", "smallppButton");
+            buttonpp.id =meme.memeName +"pp";
             buttonpp.innerHTML = "pp";
 
 
@@ -65,12 +71,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
             article.appendChild(buttonpp);
 
         }
+
+        /*incrementValue(PP, memeName) {
+
+            PP++;
+            document.getElementById(memeName).value = PP;
+        }*/
     }
 
     const memeMeme = new Meme();
-
-
-
 
     let memeFakenews = [];
     memeFakenews[0]= "FakeNews";
@@ -93,6 +102,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
     memeDaily_Cat_Facts [0] = "Daily Cat Facts";
     memeDaily_Cat_Facts[1]= new Meme ("daily_cat_facts", "grumpy cat", "images-7.jpeg", "sample texts", "", "", "");
     memeDaily_Cat_Facts[2]= new Meme("daily_cat_facts", "pickle kitty", "PickleCat.jpg", "sample text", "","pickle","");
+    memeDaily_Cat_Facts[3]= new Meme ("daily_cat_facts", "grumpy cat", "cat2.jpg", "sample texts", "", "", "");
+    memeDaily_Cat_Facts[4]= new Meme("daily_cat_facts", "pickle kitty", "cat4.jpg", "sample text", "","pickle","");
+    memeDaily_Cat_Facts[5]= new Meme ("daily_cat_facts", "grumpy cat", "cat3.jpg", "sample texts", "", "", "");
+    memeDaily_Cat_Facts[6]= new Meme("daily_cat_facts", "pickle kitty", "cat5.jpg", "sample text", "","pickle","");
+    memeDaily_Cat_Facts[7]= new Meme ("daily_cat_facts", "grumpy cat", "cat6.jpg", "sample texts", "", "", "");
+    memeDaily_Cat_Facts[8]= new Meme("daily_cat_facts", "pickle kitty", "cat7.jpg", "sample text", "","pickle","");
+    memeDaily_Cat_Facts[9]= new Meme("daily_cat_facts", "pickle kitty", "cat8.png", "sample text", "","pickle","");
 
     let memeHystorical = [];
     memeHystorical [0] = "Hystorical";
@@ -173,6 +189,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
 
+
+
+
         function getMemesOfTheDay(memeArrays, nameLookFor){
 
             for (let i = 1 ; i < memeArrays.length; i++) {
@@ -182,6 +201,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
               }
         }
     }
+
 
     fillTheScreen(memeHomeButton);
 
