@@ -60,15 +60,21 @@ nav {
     left: 5px;
     color: white;
     overflow: auto;
+    z-index: 1;
 }
 
 nav h2 {
     padding-left: 10px;
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    z-index: 2;
 }
 
 nav ul {
     list-style: none;
-    padding-top: 10px;
+    top: 120px;
+    position: fixed;
 }
 
 nav li:nth-child(1) {
@@ -85,10 +91,10 @@ main {
     position: fixed;
     overflow: auto;
     text-align: center;
-    top: 140px;
+    top: 150px;
     left: 150px;
     bottom: 40px;
-    padding: 10px;
+
 }
 
 section img {
@@ -129,7 +135,6 @@ footer {
     position: fixed;
     clear: both;
     bottom: 0;
-    line-height: 10px;
     padding-top: 5px;
     color: white;
 }
