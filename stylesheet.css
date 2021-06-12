@@ -97,20 +97,40 @@ main {
     right: 10px;
 }
 
-section {
+article {
+    box-sizing: border-box;
+    width: 50%;
+    padding-bottom: 100px;
+    border-color: black;
+    border-style: double;
     background-color: white;
-    right: 300px;
-    position: relative;
-
+    margin-bottom: 30px;
+    margin-left: 20%;
+    text-align: left;
 }
 
-section img {
+.bigppButton {
+    text-align: left;
+    alignment: top;
+    z-index: 5;
+}
+.smallppButton {
+    text-align: left;
+    alignment: top;
+    z-index: 5;
+}
+
+
+article > section img {
     max-width: 50%;
     alignment: center;
+    text-align: center;
 }
 
 .memePicture {
     max-width: 300px;
+    alignment: center;
+    text-align: center;
 }
 
 aside {
@@ -154,15 +174,15 @@ footer {
 
 .loginfist {
     position: fixed;
-    top: 10px;
-    right: 50px;
+    top: 1.5%;
+    right: 3%;
     transform: rotate(-20deg);
 }
 
 .loginwriting {
     position: fixed;
-    top: 36px;
-    right: 110px;
+    top: 5%;
+    right: 7%;
     transform: rotate(-25deg);
     z-index: 2;
 }
@@ -193,12 +213,18 @@ footer {
         left: 0;
     }
 
-    aside {
-        top: 140px;
-        right: 20px;
+    aside.loginfist {
+        position: fixed;
+        top: 5px;
+        right: 0;
+        transform: rotate(-20deg);
     }
 
-    .loginfist {
-        right: 5px;
+    aside.loginwriting {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        transform: rotate(-25deg);
+        z-index: 2;
     }
 }
