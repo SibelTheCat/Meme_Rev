@@ -103,7 +103,7 @@ article {
     padding-bottom: 100px;
     border-color: black;
     border-style: double;
-    background-color: white;
+    background-color: #4e3d3d;
     margin-bottom: 30px;
     margin-left: 20%;
     text-align: left;
@@ -121,16 +121,21 @@ article {
 }
 
 
-article > section img {
+section img {
     max-width: 50%;
     alignment: center;
     text-align: center;
+
 }
 
 .memePicture {
     max-width: 300px;
-    alignment: center;
-    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    background-color: white;
+    padding: 20px;
 }
 
 aside {
@@ -213,14 +218,14 @@ footer {
         left: 0;
     }
 
-    aside.loginfist {
+    .loginfist {
         position: fixed;
         top: 5px;
         right: 0;
         transform: rotate(-20deg);
     }
 
-    aside.loginwriting {
+    .loginwriting {
         position: fixed;
         top: 10px;
         right: 10px;
