@@ -65,10 +65,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
             //article.appendChild(category);
             article.appendChild(memeName);
             article.appendChild(description);
-            article.appendChild(memePic);
             article.appendChild(buttonPP);
             article.appendChild(showPP);
             article.appendChild(buttonpp);
+            article.appendChild(memePic);
+
 
         }
 
@@ -220,4 +221,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     document.getElementById("znarfNAV").onclick = function() {fillTheScreen(memeZnarf)};
     document.getElementById("bad_hair_dayNAV").onclick = function() {fillTheScreen(memeBad_hair_day)};
 
+
+   // let loginButton  = document.getElementById("LOGIN")
+    //loginButton.onclick = () => {
+      //  window.open('login.html');
+   // };
 });
