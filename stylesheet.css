@@ -23,7 +23,7 @@
 }
 
 body {
-    background-image: url("pewdsDesign.png");
+    background-image: url("pics/pewdsDesign.png");
     background-attachment: fixed;
     background-size: cover;
     overflow: auto;
@@ -81,7 +81,7 @@ nav li:nth-child(1) {
     visibility: hidden;
 }
 nav li {
-    background: url("pewdiepie-brofist-transparent-pewdiepie-logo-hd-png-download.png") no-repeat left center;
+    background: url("pics/pewdiepie-brofist-transparent-pewdiepie-logo-hd-png-download.png") no-repeat left center;
     background-size: 20px;
     height: 15px;
     padding: 10px 20px;

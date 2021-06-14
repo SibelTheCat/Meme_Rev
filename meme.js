@@ -11,7 +11,51 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.memeTag2 = memeTag2;
             this.memeTag3 = memeTag3;
             this.PP = 0;
+
+
+         //   this.mainBookScreen = document.getElementById("mainBookScreen");
+
+
+            const maxMemesperPage = 4;
+            let memeId = 1;
+
+            async function loadNewMeme(loadMemeId) {
+
+
+                let myObject = await fetch("http://localhost:3000/api/v1/meme/"+loadMemeId);
+                let memeObject = await myObject.json();
+
+                memeMeme.addMemeToScreen(memeObject);
+                //
+                //   shop.addBookToScreen(new Book("HTML5", "Html5: Up And Running", "HTML5_Up_And_Running.jpg", 24.80, "If you don't know about the new features available in HTML5, now's the time to find out. The latest version of this markup language is going to significantly change the way you develop web applications, and this book provides your first real look at HTML5's new elements and attributes.", "978-0596806026"));
+                //   let book = [];
+
+
+                // book[0] = new Book ("HTML5", "Html5: Up And Running", "HTML5_Up_And_Running.jpg", 24.80, "If you don't know about the new features available in HTML5, now's the time to find out. The latest version of this markup language is going to significantly change the way you develop web applications, and this book provides your first real look at HTML5's new elements and attributes.", "978-0596806026");
+                // console.log(book);
+                //  shop.addBookToScreen(book[0]);
+                /*******************************************************************************
+                 *****                                                                     *****
+                 *****    Implement the Code for loading and displaying a new book here    *****
+                 *****                                                                     *****
+                 *******************************************************************************/
+            }
+
+            loadNewMeme(memeId);
+            memeId++;
+            loadNewMeme(memeId);
+            memeId++;
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY >= document.getElementById("mainBookScreen").clientHeight - window.innerHeight - 10 && bookId <= maxMemesperPage) {
+                    loadNewMeme(bookId);
+                    bookId++;
+                }
+            });
+
+
         }
+
 
 
 
@@ -84,72 +128,72 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     let memeFakenews = [];
     memeFakenews[0]= "FakeNews";
-    memeFakenews[1]= new Meme("fakenews", "Trump", "f4f.jpg", "sample text", "","","");
-    memeFakenews[2]= new Meme("fakenews", "PickleTrump", "PickleFakeNews.jpg", "sample text", "pickle","","");
+    memeFakenews[1]= new Meme("fakenews", "Trump", "pics/f4f.jpg", "sample text", "","","");
+    memeFakenews[2]= new Meme("fakenews", "PickleTrump", "pics/PickleFakeNews.jpg", "sample text", "pickle","","");
 
     let memeIdols = [];
     memeIdols [0] = "Idols";
-    memeIdols [1]= new Meme("idols", "PickleIdol", "pickleIdol.jpg", "sample text", "","","pickle");
+    memeIdols [1]= new Meme("idols", "PickleIdol", "pics/pickleIdol.jpg", "sample text", "","","pickle");
 
     let memeNonHuman = [];
     memeNonHuman [0] = "Non Human";
-    memeNonHuman[1]= new Meme("non human", "Pickle Girlfriend", "pickleNonHum.jpg", "sample text", "","pickle","");
+    memeNonHuman[1]= new Meme("non human", "Pickle Girlfriend", "pics/pickleNonHum.jpg", "sample text", "","pickle","");
 
     let memeSciencebusters = [];
     memeSciencebusters [0] = "Sciencebusters";
-    memeSciencebusters [1]= new Meme("scienceBusters", "Pickle Science", "PickleScience.jpg", "sample text", "pickle","","");
+    memeSciencebusters [1]= new Meme("scienceBusters", "Pickle Science", "pics/PickleScience.jpg", "sample text", "pickle","","");
 
     let memeDaily_Cat_Facts = [];
     memeDaily_Cat_Facts [0] = "Daily Cat Facts";
-    memeDaily_Cat_Facts[1]= new Meme ("daily_cat_facts", "grumpy cat", "images-7.jpeg", "sample texts", "", "", "");
-    memeDaily_Cat_Facts[2]= new Meme("daily_cat_facts", "pickle kitty", "PickleCat.jpg", "sample text", "","pickle","");
-    memeDaily_Cat_Facts[3]= new Meme ("daily_cat_facts", "grumpy cat", "cat2.jpg", "sample texts", "", "", "");
-    memeDaily_Cat_Facts[4]= new Meme("daily_cat_facts", "pickle kitty", "cat4.jpg", "sample text", "","pickle","");
-    memeDaily_Cat_Facts[5]= new Meme ("daily_cat_facts", "grumpy cat", "cat3.jpg", "sample texts", "", "", "");
-    memeDaily_Cat_Facts[6]= new Meme("daily_cat_facts", "pickle kitty", "cat5.jpg", "sample text", "","pickle","");
-    memeDaily_Cat_Facts[7]= new Meme ("daily_cat_facts", "grumpy cat", "cat6.jpg", "sample texts", "", "", "");
-    memeDaily_Cat_Facts[8]= new Meme("daily_cat_facts", "pickle kitty", "cat7.jpg", "sample text", "","pickle","");
-    memeDaily_Cat_Facts[9]= new Meme("daily_cat_facts", "pickle kitty", "cat8.png", "sample text", "","pickle","");
+    memeDaily_Cat_Facts[1]= new Meme ("daily_cat_facts", "grumpy cat", "pics/images-7.jpeg", "sample texts", "", "", "");
+    memeDaily_Cat_Facts[2]= new Meme("daily_cat_facts", "pickle kitty", "pics/PickleCat.jpg", "sample text", "","pickle","");
+    memeDaily_Cat_Facts[3]= new Meme ("daily_cat_facts", "grumpy cat", "pics/cat2.jpg", "sample texts", "", "", "");
+    memeDaily_Cat_Facts[4]= new Meme("daily_cat_facts", "pickle kitty", "pics/cat4.jpg", "sample text", "","pickle","");
+    memeDaily_Cat_Facts[5]= new Meme ("daily_cat_facts", "grumpy cat", "pics/cat3.jpg", "sample texts", "", "", "");
+    memeDaily_Cat_Facts[6]= new Meme("daily_cat_facts", "pickle kitty", "pics/cat5.jpg", "sample text", "","pickle","");
+    memeDaily_Cat_Facts[7]= new Meme ("daily_cat_facts", "grumpy cat", "pics/cat6.jpg", "sample texts", "", "", "");
+    memeDaily_Cat_Facts[8]= new Meme("daily_cat_facts", "pickle kitty", "pics/cat7.jpg", "sample text", "","pickle","");
+    memeDaily_Cat_Facts[9]= new Meme("daily_cat_facts", "pickle kitty", "pics/cat8.png", "sample text", "","pickle","");
 
     let memeHystorical = [];
     memeHystorical [0] = "Hystorical";
-    memeHystorical[1] = new Meme("hystorical", "sample Name", "art1.png", "sample Text", "", "", "");
-    memeHystorical[2] = new Meme("hystorical", "sample Name", "art2.png", "sample Text", "", "", "");
-    memeHystorical[3] = new Meme("hystorical", "sampel Name", "art5.png", "sample Text", "", "", "");
-    memeHystorical[4] = new Meme("hystorical", "sampel Name", "hystorical.png", "sample Text", "", "", "");
-    memeHystorical[5]= new Meme("hystorical", "pickle art", "PickleArt.jpg", "sample text", "","","pickle");
+    memeHystorical[1] = new Meme("hystorical", "sample Name", "pics/art1.png", "sample Text", "", "", "");
+    memeHystorical[2] = new Meme("hystorical", "sample Name", "pics/art2.png", "sample Text", "", "", "");
+    memeHystorical[3] = new Meme("hystorical", "sampel Name", "pics/art5.png", "sample Text", "", "", "");
+    memeHystorical[4] = new Meme("hystorical", "sampel Name", "pics/hystorical.png", "sample Text", "", "", "");
+    memeHystorical[5]= new Meme("hystorical", "pickle art", "pics/PickleArt.jpg", "sample text", "","","pickle");
 
     let memeMinime_me = [];
     memeMinime_me [0] = "Minime-me";
-    memeMinime_me [1]= new Meme("minime-me", "pickleme", "Picklemememe.jpg", "sample text", "","","pickle");
+    memeMinime_me [1]= new Meme("minime-me", "pickleme", "pics/Picklemememe.jpg", "sample text", "","","pickle");
 
     let memeIkea = [];
     memeIkea [0] = "Ikea";
-    memeIkea[1] = new Meme("ikea-memes", "sampel Name", "ikea1.png", "sample Text", "", "", "");
-    memeIkea[2] = new Meme("ikea-memes", "sampel Name", "ikea2.png", "sample Text", "", "", "");
-    memeIkea[3] = new Meme("ikea-memes", "sampel Name", "ikea3.png", "sample Text", "", "", "");
-    memeIkea[4]= new Meme("ikea-memes", "Pickle at Ikea", "PickleIkea.jpg", "sample text", "","pickle","");
-    memeIkea[5] = new Meme("ikea-memes", "sampel Name", "ikea4.png", "sample Text", "", "", "");
+    memeIkea[1] = new Meme("ikea-memes", "sampel Name", "pics/ikea1.png", "sample Text", "", "", "");
+    memeIkea[2] = new Meme("ikea-memes", "sampel Name", "pics/ikea2.png", "sample Text", "", "", "");
+    memeIkea[3] = new Meme("ikea-memes", "sampel Name", "pics/ikea3.png", "sample Text", "", "", "");
+    memeIkea[4]= new Meme("ikea-memes", "Pickle at Ikea", "pics/PickleIkea.jpg", "sample text", "","pickle","");
+    memeIkea[5] = new Meme("ikea-memes", "sampel Name", "pics/ikea4.png", "sample Text", "", "", "");
 
     let memeTrending = [];
     memeTrending [0] = "Trending";
-    memeTrending [1]= new Meme("trending", "Pickle Trend", "PickleTrend.jpg", "sample text", "","","pickle");
+    memeTrending [1]= new Meme("trending", "Pickle Trend", "pics/PickleTrend.jpg", "sample text", "","","pickle");
 
     let memeLatest = [];
     memeLatest [0] = "Latest";
-    memeLatest [1]= new Meme("latest", "the lastest pickle shit", "pickleLatest.jpg", "sample text", "pickle","","");
+    memeLatest [1]= new Meme("latest", "the lastest pickle shit", "pics/pickleLatest.jpg", "sample text", "pickle","","");
 
     let memeBestOf = [];
     memeBestOf [0] = "Best of";
-    memeBestOf[1]= new Meme("best Of", "Best of pickle", "pickleBestof.jpg", "sample text", "","pickle","");
+    memeBestOf[1]= new Meme("best Of", "Best of pickle", "pics/pickleBestof.jpg", "sample text", "","pickle","");
 
     let memeZnarf = [];
     memeZnarf [0] = "Znarf";
-    memeZnarf[1]= new Meme("znarf", "piiiickle", "pickleSnarf.jpg", "sample text", "","","pickle");
+    memeZnarf[1]= new Meme("znarf", "piiiickle", "pics/pickleSnarf.jpg", "sample text", "","","pickle");
 
     let memeBad_hair_day = [];
     memeBad_hair_day [0] = "Bad Hair Day";
-    memeBad_hair_day[1]= new Meme("bad hair day", "pickle hair", "pickleHair.jpg", "sample text", "","pickle","");
+    memeBad_hair_day[1]= new Meme("bad hair day", "pickle hair", "pics/pickleHair.jpg", "sample text", "","pickle","");
 
     let memeHomeButton = [];
     memeHomeButton[0]= "Meme of the Day";
@@ -222,8 +266,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
     document.getElementById("bad_hair_dayNAV").onclick = function() {fillTheScreen(memeBad_hair_day)};
 
 
-   // let loginButton  = document.getElementById("LOGIN")
-    //loginButton.onclick = () => {
-      //  window.open('login.html');
-   // };
 });
