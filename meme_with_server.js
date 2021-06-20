@@ -70,7 +70,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
             shareButton.setAttribute("class", "shareButton");
             shareButton.id =meme.memeName +"shareButton";
             shareButton.innerHTML = "share";
-
+            let deleteButton = document.createElement("BUTTON");
+            deleteButton.setAttribute("class", "deleteButton");
+            deleteButton.id =meme.memeName +"deleteButton";
+            deleteButton.innerHTML = "delete";
 
 
             mainNode.appendChild(article);
@@ -83,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             article.appendChild(memePic);
             article.appendChild(commentButton);
             article.appendChild(shareButton);
+            article.appendChild(deleteButton);
 
 
         }
