@@ -62,6 +62,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
             buttonpp.addEventListener("click", event => decrementValue(meme));
             buttonpp.innerHTML = "pp";
 
+            let commentButton = document.createElement("BUTTON");
+            commentButton.setAttribute("class", "commentButton");
+            commentButton.id =meme.memeName +"commentButton";
+            commentButton.innerHTML = "comment";
+            let shareButton = document.createElement("BUTTON");
+            shareButton.setAttribute("class", "shareButton");
+            shareButton.id =meme.memeName +"shareButton";
+            shareButton.innerHTML = "share";
+
+
 
             mainNode.appendChild(article);
             //article.appendChild(category);
@@ -71,6 +81,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             article.appendChild(showPP);
             article.appendChild(buttonpp);
             article.appendChild(memePic);
+            article.appendChild(commentButton);
+            article.appendChild(shareButton);
 
 
         }
