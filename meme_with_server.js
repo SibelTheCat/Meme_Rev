@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
  let position = 1; //global Variable for Meme of the day Funktion
 
     class Meme {
-        constructor(memeCategory, memeName, memePic, memeDescription, memeTag1, memeTag2, memeTag3) {
+        constructor(id, memeCategory, memeName, memePic, memeDescription, memeTag1, memeTag2, memeTag3) {
+
+            this.id = id;
             this.memeCategory = memeCategory;
             this.memeName = memeName;
             this.memePic = memePic;
@@ -11,61 +13,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.memeTag2 = memeTag2;
             this.memeTag3 = memeTag3;
             this.PP = 0;
-
-
-         //   this.mainBookScreen = document.getElementById("mainBookScreen");
-
-
-            const maxMemesperPage = 4;
-            let memeId = 1;
-
-            async function loadNewMeme(loadMemeId) {
-
-
-                let myObject = await fetch("http://localhost:3000/api/v1/meme/"+loadMemeId);
-                let memeObject = await myObject.json();
-
-                memeMeme.addMemeToScreen(memeObject);
-                //
-                //   shop.addBookToScreen(new Book("HTML5", "Html5: Up And Running", "HTML5_Up_And_Running.jpg", 24.80, "If you don't know about the new features available in HTML5, now's the time to find out. The latest version of this markup language is going to significantly change the way you develop web applications, and this book provides your first real look at HTML5's new elements and attributes.", "978-0596806026"));
-                //   let book = [];
-
-
-                // book[0] = new Book ("HTML5", "Html5: Up And Running", "HTML5_Up_And_Running.jpg", 24.80, "If you don't know about the new features available in HTML5, now's the time to find out. The latest version of this markup language is going to significantly change the way you develop web applications, and this book provides your first real look at HTML5's new elements and attributes.", "978-0596806026");
-                // console.log(book);
-                //  shop.addBookToScreen(book[0]);
-                /*******************************************************************************
-                 *****                                                                     *****
-                 *****    Implement the Code for loading and displaying a new book here    *****
-                 *****                                                                     *****
-                 *******************************************************************************/
-            }
-
-            loadNewMeme(memeId);
-            memeId++;
-            loadNewMeme(memeId);
-            memeId++;
-
-            window.addEventListener('scroll', function () {
-                if (window.scrollY >= document.getElementById("mainBookScreen").clientHeight - window.innerHeight - 10 && bookId <= maxMemesperPage) {
-                    loadNewMeme(bookId);
-                    bookId++;
-                }
-            });
-
-
         }
-
-
-
-
 
 
         addMemeToScreen(meme) {
 
             let mainNode = document.getElementById("inspiration");
             let article = document.createElement("article");
-            //let articleNode = document.createElement("lll"); // if its emtpy it does not work :(
+            //let articleNode = document.createElement("lll"); // if its empty it does not work :(
             // article.appendChild(articleNode);
 
 
@@ -92,10 +47,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
             let buttonPP = document.createElement("BUTTON");
             buttonPP.setAttribute("class", "bigppButton");
             buttonPP.id =meme.memeName+"PP";
-            //buttonPP.addEventListener("click", meme.incrementValue(meme.PP, meme.memeName));
+            buttonPP.addEventListener("click", event => incrementValue(meme));
             buttonPP.innerHTML = "PP";
 
             let showPP = document.createElement("p");
+            showPP.id = meme.id +"node";
             let showPPNode = document.createTextNode(meme.PP);
             showPPNode.id=meme.memeName;
             showPP.appendChild(showPPNode);
@@ -103,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             let buttonpp = document.createElement("BUTTON");
             buttonpp.setAttribute("class", "smallppButton");
             buttonpp.id =meme.memeName +"pp";
+            buttonpp.addEventListener("click", event => decrementValue(meme));
             buttonpp.innerHTML = "pp";
 
 
@@ -118,16 +75,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         }
 
-        /*incrementValue(PP, memeName) {
 
-            PP++;
-            document.getElementById(memeName).value = PP;
-        }*/
     }
+    function incrementValue(meme) {
+       // console.log(meme.PP);
+       // console.log(meme.memeID);
+        meme.PP = meme.PP +1;
+        let amount =   document.getElementById(meme.id+"node") ;
+
+        amount.innerHTML = meme.PP;
+    }
+
+    function decrementValue(meme, memeName) {
+        if(meme.PP >= 1){
+        meme.PP = meme.PP -1;
+        let amount =   document.getElementById(meme.id+"node") ;
+        amount.innerHTML = meme.PP;
+    }}
 
     const memeMeme = new Meme();
 
-    let memeFakenews = [];
+   /* let memeFakenews = [];
     memeFakenews[0]= "FakeNews";
     memeFakenews[1]= new Meme("fakenews", "Trump", "pics/f4f.jpg", "sample text", "","","");
     memeFakenews[2]= new Meme("fakenews", "PickleTrump", "pics/PickleFakeNews.jpg", "sample text", "pickle","","");
@@ -138,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     let memeNonHuman = [];
     memeNonHuman [0] = "Non Human";
-    memeNonHuman[1]= new Meme("non human", "Pickle Girlfriend", "pics/pickleNonHum.jpg", "sample text", "","pickle","");
+    memeNonHuman[1]= new Meme("non_human", "Pickle Girlfriend", "pics/pickleNonHum.jpg", "sample text", "","pickle","");
 
     let memeSciencebusters = [];
     memeSciencebusters [0] = "Sciencebusters";
@@ -186,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     let memeBestOf = [];
     memeBestOf [0] = "Best of";
-    memeBestOf[1]= new Meme("best Of", "Best of pickle", "pics/pickleBestof.jpg", "sample text", "","pickle","");
+    memeBestOf[1]= new Meme("best_Of", "Best of pickle", "pics/pickleBestof.jpg", "sample text", "","pickle","");
 
     let memeZnarf = [];
     memeZnarf [0] = "Znarf";
@@ -194,10 +162,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     let memeBad_hair_day = [];
     memeBad_hair_day [0] = "Bad Hair Day";
-    memeBad_hair_day[1]= new Meme("bad hair day", "pickle hair", "pics/pickleHair.jpg", "sample text", "","pickle","");
+    memeBad_hair_day[1]= new Meme("bad_hair_day", "pickle hair", "pics/pickleHair.jpg", "sample text", "","pickle","");*/
 
-    let memeHomeButton = [];
-    memeHomeButton[0]= "Meme of the Day";
+  /*  let memeHome = [];
+    memeHome[0]= "Meme of the Day";
     let wordForMemeOfTheDay = "pickle"
     getMemesOfTheDay(memeFakenews, wordForMemeOfTheDay);
     getMemesOfTheDay(memeIdols, wordForMemeOfTheDay);
@@ -211,60 +179,74 @@ document.addEventListener("DOMContentLoaded", function (event) {
     getMemesOfTheDay(memeLatest, wordForMemeOfTheDay);
     getMemesOfTheDay(memeBestOf, wordForMemeOfTheDay);
     getMemesOfTheDay(memeZnarf, wordForMemeOfTheDay);
-    getMemesOfTheDay(memeBad_hair_day, wordForMemeOfTheDay);
+    getMemesOfTheDay(memeBad_hair_day, wordForMemeOfTheDay);*/
 
 
 
-    function fillTheScreen(params) {
-        //https://stackoverflow.com/questions/3450593/how-do-i-clear-the-content-of-a-div-using-javascript
+    async function fillTheScreen(category) {
+
+        //  let memes = null;
+        //  console.log(category);
         let div = document.getElementById('inspiration');
+        //Seite springt zur "youtube-Section"
         location.href = "#youtube_section";
 
         while (div.firstChild) {
+            //Seite wird wieder  geleert ->  //https://stackoverflow.com/questions/3450593/how-do-i-clear-the-content-of-a-div-using-javascript
             div.removeChild(div.firstChild);
         }
 
-        let category = document.createElement("h1");
-        let categoryNode = document.createTextNode(params[0]);
-        category.appendChild(categoryNode);
-        div.appendChild(category);
+        //   console.log(category);
 
-        for (let i = 1; i < params.length; i++) {
-            memeMeme.addMemeToScreen(params[i]);
+        let titleElement = document.createElement("h1");
+        let categoryNode = document.createTextNode(category);
+        titleElement.appendChild(categoryNode);
+        div.appendChild(titleElement);
+
+        //an Url wird category angehängt
+        let url = "http://localhost:3000/api/v1/meme?category="+category;
+        console.log(url);
+        let myObject = await fetch(url);
+
+        let memes = await myObject.json();
+
+        console.log(memes.length);
+        //  for (let i = 0; i < memes.length; i++) {
+        for (let i = 0; i < 10; i++) {
+            console.log(memes[i]);
+            console.log(memes);
+            memeMeme.addMemeToScreen(memes[i]);
         }
     }
-
-
-
 
 
         function getMemesOfTheDay(memeArrays, nameLookFor){
 
             for (let i = 1 ; i < memeArrays.length; i++) {
               if (memeArrays[i].memeTag1 === nameLookFor || memeArrays[i].memeTag2 === nameLookFor || memeArrays[i].memeTag2 === nameLookFor  ){
-                  memeHomeButton[position] = memeArrays[i];
+                  memeHome[position] = memeArrays[i];
                   position ++;
               }
         }
     }
 
 
-    fillTheScreen(memeHomeButton);
+    fillTheScreen("");
 
-    document.getElementById("homeNAV").onclick = function() {fillTheScreen(memeHomeButton)};
-    document.getElementById("fakenewsNAV").onclick = function() {fillTheScreen(memeFakenews)};
-    document.getElementById("idolsNAV").onclick = function() {fillTheScreen(memeIdols)};
-    document.getElementById("none_humanNAV").onclick = function() {fillTheScreen(memeNonHuman)};
-    document.getElementById("daily_cat_factsNAV").onclick = function() {fillTheScreen(memeDaily_Cat_Facts)};
-    document.getElementById("sciencebustersNAV").onclick = function() {fillTheScreen(memeSciencebusters)};
-    document.getElementById("hystoricalNAV").onclick = function() {fillTheScreen(memeHystorical)};
-    document.getElementById("minime_meNAV").onclick = function() {fillTheScreen(memeMinime_me)};
-    document.getElementById("ikea-memesNAV").onclick = function() {fillTheScreen(memeIkea)};
-    document.getElementById("trendingNAV").onclick = function() {fillTheScreen(memeTrending)};
-    document.getElementById("latestNAV").onclick = function() {fillTheScreen(memeLatest)};
-    document.getElementById("best_ofNAV").onclick = function() {fillTheScreen(memeBestOf)};
-    document.getElementById("znarfNAV").onclick = function() {fillTheScreen(memeZnarf)};
-    document.getElementById("bad_hair_dayNAV").onclick = function() {fillTheScreen(memeBad_hair_day)};
+    document.getElementById("homeNAV").onclick = function() {fillTheScreen("")};
+    document.getElementById("fakenewsNAV").onclick = function() {fillTheScreen( "fakenews")};
+    document.getElementById("idolsNAV").onclick = function() {fillTheScreen( "idols")};
+    document.getElementById("none_humainNAV").onclick = function() {fillTheScreen( "nonHumain")};
+    document.getElementById("daily_cat_factsNAV").onclick = function() {fillTheScreen("daily_cat_facts")};
+    document.getElementById("sciencebustersNAV").onclick = function() {fillTheScreen( "scienceBusters")};
+    document.getElementById("hystoricalNAV").onclick = function() {fillTheScreen( "hystorical")};
+    document.getElementById("minime_meNAV").onclick = function() {fillTheScreen("minime-me")};
+    document.getElementById("ikea-memesNAV").onclick = function() {fillTheScreen( "ikea-memes")};
+    document.getElementById("trendingNAV").onclick = function() {fillTheScreen("trending")};
+    document.getElementById("latestNAV").onclick = function() {fillTheScreen( "latest")};
+    document.getElementById("best_ofNAV").onclick = function() {fillTheScreen( "best_Of")};
+    document.getElementById("znarfNAV").onclick = function() {fillTheScreen( "znarf")};
+    document.getElementById("bad_hair_dayNAV").onclick = function() {fillTheScreen( "bad_hair_day")};
 
 
 });

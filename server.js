@@ -3,6 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const memeRoutes = require('./api/routes/MemeRoutes')
+// cors = Cross-Origin Resource Sharing
 const cors = require('cors')
 
 //create new application
@@ -17,7 +18,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use('/api/v1/meme', memeRoutes);
-// Ruten werden autmatisch dazugef.
+// Ruten werden automatisch dazugef.
 
 
 

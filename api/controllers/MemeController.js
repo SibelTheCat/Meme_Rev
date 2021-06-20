@@ -2,8 +2,16 @@ const MemesModel = require("../models/MemesModel");
 
 class MemeController {
     static memes_get_all(req, res) {
-        const memesArray = MemesModel.getMemes();
-        res.send(memesArray);
+        let memes = [];
+        if (req.query.category) {
+         memes = MemesModel.findMemesByCategory(req.query.category);
+        }
+        else {
+            memes = MemesModel.getMemes();
+     //  console.log("memes:" + memes);
+        }
+
+        res.send(memes);
     }
 
     static meme_get_by_id(req, res) {
@@ -34,7 +42,7 @@ class MemeController {
             res.status(200).send("Meme was updated");
         }
         else {
-            res.status(404).send("Meme id does not exist, book was not updated");
+            res.status(404).send("Meme id does not exist, meme was not updated");
         }
 
 
