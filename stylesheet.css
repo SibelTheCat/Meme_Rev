@@ -197,6 +197,10 @@ footer {
     position: fixed;
 }
 
+
+
+
+
 @media screen and (max-width: 768px) {
 
     nav {
@@ -232,4 +236,132 @@ footer {
         transform: rotate(-25deg);
         z-index: 2;
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS 4 MEME GENERATOR START */
+
+#main{
+    width: 65vw;
+    margin: 10px auto;
+    text-align: center;
+}
+#memes{
+    width: 65vw;
+    height: 70vh;
+    position: relative;
+}
+
+textarea{
+    width: 65vw;
+    resize: vertical;
+    height: 40px;
+    font-size: 25px;
+    overflow: hidden;
+    height: 60px;
+    text-align: center;
+    outline: none;
+    margin-bottom: -10px;
+    font-weight: 600;
+    font-family: sans-serif;
+    border: none;
+    padding: 5px;
+}
+#upper{
+    background: #e5ff00;
+    color: black;
+}
+#lower{
+    background: black;
+    color: white;
+}
+#input{
+    display: none;
+    margin-top: 50px;
+}
+.btn{
+    background: rgb(149, 43, 43);
+    text-transform: capitalize;
+    padding: 5px 10px;
+    font-family: sans-serif;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+#downloads{
+    display: none;
+}
+i{
+    padding: 0 5px;
+}
+.access{
+    margin-top: 20px;
+    text-align: center;
+}
+#memes{
+    background: rgb(187, 186, 186);
+}
+
+@media screen and (max-width:800px){
+    #main,img,textarea,#memes{
+        width: 90vw;
+    }
+}
+@media screen and (max-width:579px){
+    #memes,img{
+        height: 50vh;
+    }
+    .access a{
+        display: block;
+        width: 170px;
+        margin: 5px auto;
+    }
+}
+/* CSS 4 MEME GENERATOR ENDE */
+
