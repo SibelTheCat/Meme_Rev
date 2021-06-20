@@ -28,6 +28,14 @@ body {
     background-size: cover;
     overflow: auto;
 }
+/*
+https://www.w3schools.com/cssref/css3_pr_font-face_rule.asp
+ */
+@font-face {
+    font-family: pewdiepie;
+    src: url("FEASFBRG.TTF");
+}
+
 header {
     width: 100%;
     height: 120px;
@@ -37,8 +45,9 @@ header {
     top: 15px;
     bottom: 15px;
     text-align: center;
-    font-family: Impact;
+    font-family: "pewdiepie";
     font-size: 50px;
+    letter-spacing: 7px;
     color: #21a8e8;
     background-color: black;
     text-transform: uppercase;
@@ -69,12 +78,33 @@ nav h2 {
     top: 100px;
     left: 20px;
     z-index: 2;
+    font-family: "pewdiepie";
 }
 
 nav ul {
     list-style: none;
     top: 120px;
     position: fixed;
+}
+li button {
+    box-shadow: 3px 4px 0px 0px #57100b;
+    background:linear-gradient(to bottom, #000000 100%, #ff1a05 5%);
+    background-color:#ff1a05;
+    border-radius:12px;
+    border:1px solid #fc2419;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:13px;
+    padding:5px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #3b100c;
+}
+
+li button:hover {
+    background: linear-gradient(to bottom, #000000 5%, #ff1a05 100%);
+    background-color: #000000;
 }
 
 nav li:nth-child(1) {
@@ -93,39 +123,62 @@ main {
     text-align: center;
     top: 150px;
     left: 150px;
-    bottom: 40px;
+    bottom: 30px;
     right: 10px;
 }
 
 article {
     box-sizing: border-box;
+    border-radius: 15px;
     width: 50%;
-    padding-bottom: 100px;
-    border-color: black;
-    border-style: double;
-    background-color: #4e3d3d;
-    margin-bottom: 30px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+    background-color: #282828;
+    margin-bottom: 20px;
     margin-left: 20%;
     text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #888888;
+}
+
+article p {
+    padding-left: 10px;
 }
 
 .bigppButton {
-    text-align: left;
-    alignment: top;
     z-index: 5;
+    background: transparent;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #888888;
+    font-weight: bold;
+    border: transparent;
+    cursor:pointer;
 }
 .smallppButton {
-    text-align: left;
-    alignment: top;
     z-index: 5;
+    background: transparent;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #888888;
+    font-weight: bold;
+    border: transparent;
+    cursor:pointer;
 }
 
+#inspiration > h1 {
+    font-family: "pewdiepie";
+    color: white;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
 
 section img {
     max-width: 50%;
     alignment: center;
     text-align: center;
-
 }
 
 .memePicture {
@@ -135,7 +188,8 @@ section img {
     margin-right: auto;
     width: 50%;
     background-color: white;
-    padding: 20px;
+    padding-right: 80px;
+    padding-left: 80px;
 }
 
 aside {
@@ -161,6 +215,7 @@ aside.h2 {
 footer {
     background-color: black;
     text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
     width: 100%;
     height: 20px;
     line-height: 10px;
@@ -190,11 +245,15 @@ footer {
     right: 7%;
     transform: rotate(-25deg);
     z-index: 2;
+    font-family: "pewdiepie";
 }
+
+a { text-decoration: none; }
 
 #signup {
     color: white;
     position: fixed;
+    font-family: "pewdiepie";
 }
 
 
@@ -350,6 +409,7 @@ textarea{
     display: inline-block;
     color: white;
     text-decoration: none;
+    cursor: pointer;
 }
 #downloads{
     display: none;
