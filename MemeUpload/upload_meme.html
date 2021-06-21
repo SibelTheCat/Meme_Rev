@@ -5,76 +5,69 @@
     <title>Upload</title>
     <script src="add_meme_form.js"></script>
     <link rel="stylesheet" href="meme_upload_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <h1>Upload new meme</h1>
 
 <form id="myForm"action="/untitled1/meme.html" method="post" enctype="text/plain">
 
-<div class = "Meme_Category">
-    <p class = "Question_Category">Please choose a category for your meme:</p>
-    <div class="imgcontainer">
-        <img src="/pics/upload_meme.jpg" alt="Meme Upload" class="upload">
-        <img src="/pics/Bernhard.jpg" alt="surprised" class="surprised">
+    <div class = "Meme_Category">
+        <p class = "Question_Category">Please choose a category for your meme:</p>
+        <div class="imgcontainer">
+            <img src="/pics/upload_meme.jpg" alt="Meme Upload" class="upload">
+            <img src="/pics/Bernhard.jpg" alt="surprised" class="surprised">
+        </div>
+        <label><input type="radio"value="fakenews"name="category"id="fakenews">
+            fakenews</label>
+       <br> <label><input type="radio"value="idols"name="category"id="idols">
+            idols</label>
+       <br> <label><input type="radio"value="none humain"name="category"id="none humain">
+            none humain</label>
+        <br> <label><input type="radio"value="daily cat facts"name="category"id="daily cat facts">
+            daily cat facts</label>
+        <br> <label><input type="radio"value="sciencebusters"name="category"id="sciencebusters">
+            sciencebusters</label>
+        <br><label><input type="radio"value="hystorical"name="category"id="hystorical">
+            hystorical</label>
+        <br> <label><input type="radio"value="minime-me"name="category"id="minime-me">
+            minime-me</label>
+        <br><label><input type="radio"value="ikea-memes"name="category"id="ikea-memes">
+            ikea-memes</label>
+        <br><label><input type="radio"value="trending"name="category"id="trending">
+            trending</label>
+        <br><label><input type="radio"value="latest"name="category"id="latest">
+            latest</label>
+        <br><label><input type="radio"value="best of"name="category"id="best of">
+            best of</label>
+        <br> <label><input type="radio"value="znarf"name="category"id="znarf">
+            znarf</label>
+        <br> <label><input type="radio"value="bad hair day"name="category"id="bad hair day">
+            bad hair day</label>
     </div>
-    <label><input type="radio"value="fakenews"name="category"id="fakenews">
-        fakenews</label>
-   <br> <label><input type="radio"value="idols"name="category"id="idols">
-        idols</label>
-   <br> <label><input type="radio"value="none humain"name="category"id="none humain">
-        none humain</label>
-    <br> <label><input type="radio"value="daily cat facts"name="category"id="daily cat facts">
-        daily cat facts</label>
-    <br> <label><input type="radio"value="sciencebusters"name="category"id="sciencebusters">
-        sciencebusters</label>
-    <br><label><input type="radio"value="hystorical"name="category"id="hystorical">
-        hystorical</label>
-    <br> <label><input type="radio"value="minime-me"name="category"id="minime-me">
-        minime-me</label>
-    <br><label><input type="radio"value="ikea-memes"name="category"id="ikea-memes">
-        ikea-memes</label>
-    <br><label><input type="radio"value="trending"name="category"id="trending">
-        trending</label>
-    <br><label><input type="radio"value="latest"name="category"id="latest">
-        latest</label>
-    <br><label><input type="radio"value="best of"name="category"id="best of">
-        best of</label>
-    <br> <label><input type="radio"value="znarf"name="category"id="znarf">
-        znarf</label>
-    <br> <label><input type="radio"value="bad hair day"name="category"id="bad hair day">
-        bad hair day</label>
-</div>
-<p>
+    <div class = "memeTitle">
+        <p>
+            Please add the title of your meme<br>
+            <input type="text" name="title" value="" placeholder="Enter meme-title"><br></p>
+    </div>
+    <div class ="memeTags">
+        <p>Please add up to three tags for your meme<br>
+            Tag 1 <input type="text" name="tag1" value="" placeholder="Enter Tag 1" ><br>
+            Tag 2  <input type="text" name="tag1" value="" placeholder="Enter Tag 2"><br>
+            Tag 3 <input type="text" name="tag1" value="" placeholder="Enter Tag 3"><br> </p>
+    </div>
 
-        Please add the title of your meme<br>
-        <input type="text" name="title" value="" placeholder="Enter meme-title"><br>
-    <br>
-        Please add up to three tags for your meme<br>
-        Tag 1 <input type="text" name="tag1" value="" placeholder="Enter Tag 1" ><br>
-        Tag 2  <input type="text" name="tag1" value="" placeholder="Enter Tag 2"><br>
-        Tag 3 <input type="text" name="tag1" value="" placeholder="Enter Tag 3"><br>
-
-
-    </p>
-
-
-
+    <div class ="memeUpload">
 <!--    https://www.webtrickshome.com/faq/how-to-display-uploaded-image-in-html-using-javascript-->
-    Please upload your meme<br>
-    <input type="file"  accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
-    <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+    <p>Please upload your meme<br>
+    <input type="file"  accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;"></p>
+    <p><label for="file" class="btn" ><i class="fa fa-upload"></i>Upload Image</label></p>
     <img id="output" width="200" />
     <p id="picture_name"></p>
 
-
+    </div>
     <input id = "sendButton" name="submit" type="submit" value="Send">
 </form>
-
-
-
-
-
-</div>
 
 </body>
 </html>
