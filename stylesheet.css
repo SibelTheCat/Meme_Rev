@@ -147,7 +147,7 @@ article p {
     padding-left: 10px;
 }
 
-.bigppButton {
+.Button {
     z-index: 5;
     background: transparent;
     font-family: 'Roboto', sans-serif;
@@ -157,15 +157,19 @@ article p {
     border: transparent;
     cursor:pointer;
 }
-.smallppButton {
-    z-index: 5;
-    background: transparent;
-    font-family: 'Roboto', sans-serif;
-    font-size: 15px;
-    color: #888888;
-    font-weight: bold;
-    border: transparent;
-    cursor:pointer;
+
+.commentButton {
+    position: fixed;
+    padding-left: 100px;
+    padding-top: 100px;
+
+}
+.shareButton {
+    position: center;
+
+}
+.deleteButton{
+    position: center;
 }
 
 #inspiration > h1 {
@@ -196,7 +200,7 @@ aside {
     position: fixed;
     font-family: "Comic Sans MS";
     float: right;
-    right: 15px;
+    right: 25px;
     top: 150px;
     width: 200px;
     height: 100%;
@@ -241,122 +245,28 @@ footer {
 
 .loginwriting {
     position: fixed;
-    top: 5%;
-    right: 7%;
+    top: 6%;
+    right: 7.5%;
     transform: rotate(-25deg);
     z-index: 2;
     font-family: "pewdiepie";
+    color: white;
 }
 
-a { text-decoration: none; }
+aside a { text-decoration: none; color: white}
 
 #signup {
     color: white;
     position: fixed;
     font-family: "pewdiepie";
+    padding-top: 10px;
 }
 
-
-
-
-
-@media screen and (max-width: 768px) {
-
-    nav {
-        width: 100%;
-        height: 90px;
-    }
-
-    nav > h2 {
-        text-align: center;
-    }
-
-    li {
-        display: inline-flex;
-        padding: 5px;
-    }
-
-    main {
-        top: 140px;
-        left: 0;
-    }
-
-    .loginfist {
-        position: fixed;
-        top: 5px;
-        right: 0;
-        transform: rotate(-20deg);
-    }
-
-    .loginwriting {
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        transform: rotate(-25deg);
-        z-index: 2;
-    }
-
+#upload_meme {
+    font-family: "pewdiepie";
+    position: fixed;
+    padding-top: 25px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* CSS 4 MEME GENERATOR START */
 
@@ -425,11 +335,49 @@ i{
     background: rgb(187, 186, 186);
 }
 
-@media screen and (max-width:800px){
+@media screen and (max-width: 768px) {
+
+    nav {
+        width: 100%;
+        height: 90px;
+    }
+
+    nav > h2 {
+        text-align: center;
+    }
+
+    li {
+        display: inline-flex;
+        padding: 5px;
+    }
+
+    main {
+        top: 140px;
+        left: 0;
+    }
+
+    .loginfist {
+        position: fixed;
+        top: 5px;
+        right: 0;
+        transform: rotate(-20deg);
+    }
+
+    .loginwriting {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        transform: rotate(-25deg);
+        z-index: 2;
+    }
+/*
+used to be screen max-width 800px
+ */
     #main,img,textarea,#memes{
         width: 90vw;
     }
 }
+
 @media screen and (max-width:579px){
     #memes,img{
         height: 50vh;
@@ -440,5 +388,4 @@ i{
         margin: 5px auto;
     }
 }
-/* CSS 4 MEME GENERATOR ENDE */
 

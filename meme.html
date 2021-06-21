@@ -5,7 +5,6 @@
     <title>Meme Review</title>
     <script src="meme_with_server.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
-    <link rel="stylesheet" href="https://www.dafont.com/feast-of-flesh-bb.font">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap">
 
     <!-- font awesome icon cdn -->
@@ -61,15 +60,18 @@
     <!---<p><img class = "meme_generator" src="meme_g.png" alt="meme generator">-->
 
     <div id="main">
-        <textarea name="" id="upper"       placeholder="Type your meme"></textarea>
+        <textarea name="" id="upper" spellcheck="false" placeholder="Type your meme"></textarea>
         <br>
         <div id="memes">
-            <img src="meme_g.png" alt="img" id="img">
+            <img src="meme_g.png" alt="Meme Generator" id="img">
         </div>
-        <textarea name="" id="lower" placeholder="Type lower meme"></textarea>
+        <textarea name="" id="lower" spellcheck="false" placeholder="Type lower meme"></textarea>
         <br>
     </div>
 
+    <!---   accept attribute specifies filter for what file types user can pick from file input dialog box
+    -> only this type of file will be visible for selection
+    accept attribute can only be used with <input type="file">    -->
 
     <div class="access">
         <input type="file" id="input" accept="image/*" name="meme">
@@ -81,18 +83,14 @@
 
     <script src="MemeGenerator.js"></script>
 
-
 </main>
 
 <aside id= "log_in">
 
-
-
     <h2 class = "loginfist"> <a href="login.html" target="_parent" onclick="window.open(this.href, 'LogIn', 'width=400,height=400');return false" ><img id = "fist" src="pics/pewdiepie-brofist-transparent-pewdiepie-logo-hd-png-download.png"  alt="fist"> </a></h2>
     <h2 class = loginwriting> <a href="login.html" target="_parent" onclick="window.open(this.href, 'LogIn', 'width=400,height=400');return false" >Login</a></h2>
-    <h2 id = "signup">Sign up</h2>
-    <h2 id = "upload_meme"><a href="MemeUpload/upload_meme.html">Upload meme</a> </h2>
-
+    <h2 id = "signup">Sign up</h2> <br>
+    <h2 id = "upload_meme"><a href="MemeUpload/upload_meme.html"> <i class="fa fa-upload"></i> Upload new Meme</a> </h2>
 
 </aside>
 
@@ -100,7 +98,6 @@
     <p>© Copyright by Project Meme Review</p>
 
 </footer>
-
 
 </body>
 </html>

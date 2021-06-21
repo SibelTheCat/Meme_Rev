@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             memePic.appendChild(memePicNode);
 
             let buttonPP = document.createElement("BUTTON");
-            buttonPP.setAttribute("class", "bigppButton");
+            buttonPP.setAttribute("class", "bigpp Button");
             buttonPP.id =meme.memeName+"PP";
             buttonPP.addEventListener("click", event => incrementValue(meme));
             buttonPP.innerHTML = "PP";
@@ -57,23 +57,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
             showPP.appendChild(showPPNode);
 
             let buttonpp = document.createElement("BUTTON");
-            buttonpp.setAttribute("class", "smallppButton");
+            buttonpp.setAttribute("class", "smallpp Button");
             buttonpp.id =meme.memeName +"pp";
             buttonpp.addEventListener("click", event => decrementValue(meme));
             buttonpp.innerHTML = "pp";
 
             let commentButton = document.createElement("BUTTON");
-            commentButton.setAttribute("class", "commentButton");
+            commentButton.setAttribute("class", "comment Button");
             commentButton.id =meme.memeName +"commentButton";
-            commentButton.innerHTML = "comment";
+            commentButton.innerHTML = '<i class="fa fa-comment" aria-hidden="true"></i>';
             let shareButton = document.createElement("BUTTON");
-            shareButton.setAttribute("class", "shareButton");
+            shareButton.setAttribute("class", "share Button");
             shareButton.id =meme.memeName +"shareButton";
-            shareButton.innerHTML = "share";
+            shareButton.innerHTML = '<i class="fa fa-share" aria-hidden="true"></i>';
             let deleteButton = document.createElement("BUTTON");
-            deleteButton.setAttribute("class", "deleteButton");
+            deleteButton.setAttribute("class", "delete Button");
             deleteButton.id =meme.memeName +"deleteButton";
-            deleteButton.innerHTML = "delete";
+            deleteButton.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
 
 
             mainNode.appendChild(article);

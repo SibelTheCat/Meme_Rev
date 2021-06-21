@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Upload</title>
     <script src="add_meme_form.js"></script>
+    <link rel="stylesheet" href="meme_upload_style.css">
 </head>
 <body>
 <h1>Upload new meme</h1>
@@ -11,7 +12,11 @@
 <form id="myForm"action="/untitled1/meme.html" method="post" enctype="text/plain">
 
 <div class = "Meme_Category">
-    <p class = "Question_Category">Please chose a category for your meme:</p>
+    <p class = "Question_Category">Please choose a category for your meme:</p>
+    <div class="imgcontainer">
+        <img src="/pics/upload_meme.jpg" alt="Meme Upload" class="upload">
+        <img src="/pics/Bernhard.jpg" alt="surprised" class="surprised">
+    </div>
     <label><input type="radio"value="fakenews"name="category"id="fakenews">
         fakenews</label>
    <br> <label><input type="radio"value="idols"name="category"id="idols">
