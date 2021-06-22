@@ -111,7 +111,7 @@ input[type="submit"]:active {
     padding: 40px;
     width: 300px;
     height: 400px;
-    background-size: 20%;
+    background-size: cover;
     background: url('https://pbs.twimg.com/media/Co4CSEtUAAA5nr6.jpg') center no-repeat;
     border-radius: 0 2px 2px 0;
 }

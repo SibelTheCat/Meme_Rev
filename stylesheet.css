@@ -278,7 +278,10 @@ textarea{
     outline: none;
     margin-bottom: -10px;
     font-weight: 600;
-    font-family: sans-serif;
+    font-family: Impact;
+    color: white;
+    -webkit-text-stroke: 2px black;
+    text-transform: uppercase;
     border: none;
     padding: 5px;
 }
@@ -296,7 +299,6 @@ textarea{
 }
 .btn{
     background: #21a8e8;
-    text-transform: capitalize;
     padding: 5px 10px;
     font-family: sans-serif;
     border: none;
