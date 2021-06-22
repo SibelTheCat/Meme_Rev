@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url("/pics/pewdsDesign.png");
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: auto;
+}
+
+@font-face {
+    font-family: pewdiepie;
+    src: url("/FEASFBRG.TTF");
+}
+
+h1 {
+    width: 100%;
+    height: 120px;
+    position: fixed;
+    z-index: 1;
+    clear: both;
+    top: 15px;
+    bottom: 15px;
+    text-align: center;
+    font-family: "pewdiepie";
+    font-size: 50px;
+    letter-spacing: 7px;
+    color: #21a8e8;
+    background-color: black;
+    text-transform: uppercase;
+}
+
+.Meme_Category {
+    top: 150px;
+    left: 20px;
+    position: fixed;
+}
+
+.memeTitle {
+    bottom: 200px;
+    left: 20px;
+    position: fixed;
+}
+
+.memeTags {
+    bottom: 95px;
+    left: 20px;
+    position: fixed;
+}
+
+.memeUpload {
+    bottom: 30px;
+    left: 20px;
+    position: fixed;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+#sendButton {
+    bottom: 5px;
+    position: fixed;
+    left: 20px;
+    cursor: pointer;
+}
