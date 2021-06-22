@@ -14,4 +14,34 @@ memeRoutes.put('/:id', MemeController.meme_update_book_by_id);
 memeRoutes.delete('/:id', MemeController.delete_meme_by_id);
 
 
+
+
+
+
+
+
+
+
+//ID
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = memeRoutes;

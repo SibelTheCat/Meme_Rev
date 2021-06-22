@@ -20,6 +20,7 @@ function sendButtonIsClicked() {
     var meme_tag2 = document.getElementById("myForm").elements[2].value;
     var meme_tag3= document.getElementById("myForm").elements[3].value;
 
+
     //console.log(meme_title);
    // console.log(meme_tag1);
    // console.log(meme_tag2);

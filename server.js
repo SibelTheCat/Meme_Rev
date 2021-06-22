@@ -2,7 +2,7 @@
 //libraries imported: express + body-parser
 const express = require('express');
 const bodyParser = require('body-parser');
-const memeRoutes = require('./api/routes/MemeRoutes')
+const memeRoutes = require('./api/routes/MemeRoutes');
 // cors = Cross-Origin Resource Sharing
 const cors = require('cors')
 
@@ -18,6 +18,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use('/api/v1/meme', memeRoutes);
+
 // Ruten werden automatisch dazugef.
 
 
