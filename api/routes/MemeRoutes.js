@@ -2,6 +2,7 @@ const {Router} = require('express');
 const memeRoutes = Router();
 
 const MemeController = require("../controllers/MemeController");
+const LogInController = require("../LogIn/LogInController");
 //const MemesModel = require("../models/MemesModel");
 
 
@@ -22,7 +23,12 @@ memeRoutes.delete('/:id', MemeController.delete_meme_by_id);
 
 
 
-//ID
+//ID 4 Login
+
+memeRoutes.get('/login', LogInController.user_get_all);
+memeRoutes.get('/login:id', LogInController.user_get_by_id);
+memeRoutes.post('/login', LogInController.User_create_user);
+memeRoutes.put('/login:id', LogInController.User_update_by_id);
 
 
 
