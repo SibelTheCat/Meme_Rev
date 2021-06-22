@@ -2,8 +2,28 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: rgba(135, 95, 95, 0);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: rgba(245, 245, 245, 0);
+}
+
+::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #5f5757;
+}
+
 body {
-    background-image: url("/pics/pewdsDesign.png");
+    background-image: url("../pics/pewdsDesign.png");
     background-attachment: fixed;
     background-size: cover;
     overflow: auto;
@@ -24,44 +44,67 @@ h1 {
     bottom: 15px;
     text-align: center;
     font-family: "pewdiepie";
-    font-size: 50px;
+    font-size: 70px;
     letter-spacing: 7px;
     color: #21a8e8;
     background-color: black;
     text-transform: uppercase;
+    padding-top: 20px;
+}
+
+.upload {
+    max-height: 200px;
+    top: 150px;
+    z-index: 5;
+    position: center;
+}
+
+.surprised {
+    max-height: 200px;
+    float: right;
+    top: 150px;
+    z-index: 5;
 }
 
 .Meme_Category {
+    padding-left: 20px;
     top: 150px;
-    left: 20px;
-    position: fixed;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    padding-top: 150px;
+}
+
+article {
+    overflow: auto;
+    height: 500px;
+    width: 100%;
 }
 
 .memeTitle {
-    bottom: 200px;
-    left: 20px;
-    position: fixed;
+    padding: 20px;
 }
 
 .memeTags {
-    bottom: 95px;
+    padding: 20px;
     left: 20px;
-    position: fixed;
 }
 
 .memeUpload {
-    bottom: 30px;
     left: 20px;
-    position: fixed;
+    padding: 20px;
+}
+
+.memeUpload p {
+    padding-bottom: 10px;
 }
 
 .btn {
     cursor: pointer;
+    background-color: black;
+    padding:10px;
 }
 
 #sendButton {
-    bottom: 5px;
-    position: fixed;
     left: 20px;
     cursor: pointer;
 }

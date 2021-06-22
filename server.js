@@ -9,7 +9,7 @@ const cors = require('cors')
 //create new application
 const app = express();
 
-//specify a port and pass it via an environment variable, or predevine it
+//specify a port and pass it via an environment variable, or predefine it
 const port = process.env.PORT || 3000;
 
 //routes get added-> we create our API route

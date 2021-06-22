@@ -257,23 +257,30 @@ aside a { text-decoration: none; color: white}
 /* CSS 4 MEME GENERATOR START */
 
 #main{
-    width: 65vw;
+    width: 40vw;
     margin: 10px auto;
     text-align: center;
 }
 #memes{
-    width: 65vw;
+    width: 40vw;
     height: 70vh;
     position: relative;
+    background: black;
+}
+
+#memes img {
+    position: relative;
+    width: 100%;
+    height:100%;
 }
 
 textarea{
-    width: 65vw;
+    width: 40vw;
     resize: vertical;
-    height: 40px;
-    font-size: 25px;
+    height: 30px;
+    font-size: 40px;
     overflow: hidden;
-    height: 60px;
+    min-height: 60px;
     text-align: center;
     outline: none;
     margin-bottom: -10px;
@@ -283,11 +290,11 @@ textarea{
     -webkit-text-stroke: 2px black;
     text-transform: uppercase;
     border: none;
-    padding: 5px;
+    padding: 5px 0;
 }
 #upper{
-    background: #e5ff00;
-    color: black;
+    background: #ac0f0f;
+
 }
 #lower{
     background: black;
@@ -307,6 +314,7 @@ textarea{
     display: inline-block;
     color: white;
     text-decoration: none;
+    text-transform: capitalize;
     cursor: pointer;
 }
 #downloads{
@@ -318,9 +326,6 @@ i{
 .access{
     margin-top: 20px;
     text-align: center;
-}
-#memes{
-    background: rgb(187, 186, 186);
 }
 
 @media screen and (max-width: 768px) {
@@ -358,9 +363,7 @@ i{
         transform: rotate(-25deg);
         z-index: 2;
     }
-/*
-used to be screen max-width 800px
- */
+
     #main,img,textarea,#memes{
         width: 90vw;
     }
