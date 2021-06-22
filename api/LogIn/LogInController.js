@@ -2,18 +2,6 @@ const UserModel = require("./LogInModel");
 
 
 class LogInController {
-    static user_get_all(req, res) {
-        let user = [];
-        if (req.query.category) {
-         user = UserModel.findUserByCategory(req.query.category);
-        }
-        else {
-            user = UserModel.getUser();
-     //  console.log("memes:" + memes);
-        }
-
-        res.send(user);
-    }
 
     static user_get_by_id(req, res) {
         const {id} = req.params;
@@ -21,7 +9,7 @@ class LogInController {
         if (getUser) {
             res.send(getUser);
         } else {
-            res.status(404).send('Meme not found.');
+            res.status(404).send('User not found.');
         }
     }
 
@@ -31,7 +19,7 @@ class LogInController {
         let  User =   req.body;
         UserModel.createUser(User);
        // console.log(meme);
-        res.status(201).send("Meme was created");
+        res.status(201).send("User was created");
 
     }
 
@@ -40,10 +28,10 @@ class LogInController {
         let User =   req.body;
         let updated = UserModel.updateUserById(id, user);
         if (updated){
-            res.status(200).send("Meme was updated");
+            res.status(200).send("User was updated");
         }
         else {
-            res.status(404).send("Meme id does not exist, meme was not updated");
+            res.status(404).send("User id does not exist, User was not updated");
         }
 
 

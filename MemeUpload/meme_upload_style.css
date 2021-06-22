@@ -11,7 +11,7 @@ body {
 
 @font-face {
     font-family: pewdiepie;
-    src: url("/FEASFBRG.TTF");
+    src: url("../FEASFBRG.TTF");
 }
 
 h1 {
