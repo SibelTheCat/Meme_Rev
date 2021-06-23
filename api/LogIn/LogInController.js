@@ -3,6 +3,7 @@ const UserModel = require("./LogInModel");
 
 class LogInController {
 
+
     static user_get_by_id(req, res) {
         const {id} = req.params;
         const getUser = UserModel.findUserById(id);

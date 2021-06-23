@@ -7,7 +7,7 @@ var userArray = [];
 
 class LogInModel {
     static getUser() {
-        //let memesArray = [];
+
         con.query("SELECT * FROM user ", function (err, result, fields) {
             if (err) throw err;
 
@@ -57,8 +57,8 @@ class LogInModel {
         if (user.has(id.toString())) {
             user.set(id.toString(), {
 
-                ID: user.ID,
-                Name : user.name,
+                id: user.id,
+                name : user.name,
                 email : user.email,
                 password : user.password,
 
