@@ -31,6 +31,7 @@ class MemeController {
 
         let  meme =   req.body;
        // console.log(JSON.stringify(meme));
+        //create Meme returns promise
        let promise = MemesModel.createMeme(meme);
        // console.log(meme);
 
@@ -45,15 +46,20 @@ class MemeController {
     }
 
     static meme_update_by_id(req, res) {
-        const {id} =   req.params.id;
+
+        // console.log(JSON.stringify(meme));
+        //create Meme returns promise
         let meme =   req.body;
-        let updated = MemesModel.updateMemeById(id, meme);
-        if (updated){
-            res.status(200).send("Meme was updated");
-        }
-        else {
-            res.status(404).send("Meme id does not exist, meme was not updated");
-        }
+        let updated = MemesModel.updateMemeById(meme);
+        // console.log(meme);
+
+        updated.then(function(message){
+            res.contentType("text/plain");
+            res.status(201).send(message);
+        }).catch(function(error){
+            res.status(500).send("Error, Meme was not updated");
+        });
+
 
     }
 

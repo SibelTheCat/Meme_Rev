@@ -27,9 +27,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let meme_tag2 = document.getElementById("myForm").elements[16].value;
     let meme_tag3= document.getElementById("myForm").elements[17].value;
 
-    let picName = document.getElementById('picture_name');
-
-
 
     let newMeme = {
         memeCategory: category,
