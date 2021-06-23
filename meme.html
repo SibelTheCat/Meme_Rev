@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme Review</title>
     <script src="meme_with_server.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap">
+    <link rel="stylesheet" href="https://github.com/tedtoy/ShimmerJS">
 
     <!-- font awesome icon cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -104,12 +106,12 @@
     <!---<p><img class = "meme_generator" src="meme_g.png" alt="meme generator">-->
 
     <div id="main">
-        <textarea name="" id="upper" rows="2" spellcheck="false" placeholder="Type your meme"></textarea>
+        <textarea name="" id="upper" rows="2" spellcheck="false" placeholder="Upper Caption"></textarea>
         <br>
         <div id="memes">
             <img src="meme_g.png" alt="Meme Generator" id="img">
         </div>
-        <textarea name="" id="lower" rows="2" spellcheck="false" placeholder="Type lower meme"></textarea>
+        <textarea name="" id="lower" rows="2" spellcheck="false" placeholder="Lower Caption"></textarea>
         <br>
     </div>
 
@@ -131,8 +133,7 @@
 
 <aside id= "log_in">
 
-    <h2 class = "loginfist"> <a href="login.html" target="_parent" onclick="window.open(this.href, 'LogIn', 'width=400,height=400');return false" ><img id = "fist" src="pics/pewdiepie-brofist-transparent-pewdiepie-logo-hd-png-download.png"  alt="fist"> </a></h2>
-    <h2 class = loginwriting> <a href="login.html" target="_parent" onclick="window.open(this.href, 'LogIn', 'width=400,height=400');return false" >Login</a></h2>
+    <h2 class = "loginfist"> <a href="login.html" target="_parent" onclick="window.open(this.href, 'LogIn', 'width=400,height=400');return false" ><img id = "fist" src="pics/LoginFistToUse.png"  alt="fist"> </a></h2>
     <h2 id = "signup"><a href="signup.html">Sign up</a></h2> <br><br>
     <h2 id = "upload_meme"><a href="MemeUpload/upload_meme.html"> <i class="fa fa-upload"></i> Upload new Meme</a> </h2>
 

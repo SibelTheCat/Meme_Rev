@@ -46,6 +46,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
             memePicNode.setAttribute("class", "memePicture");
             memePic.appendChild(memePicNode);
 
+            // tryout
+            let memeWindow = document.createElement("p");
+            memeWindow.setAttribute("class", "memeWindow");
+            memeWindow.appendChild(memePic);
+
             let buttonPP = document.createElement("BUTTON");
             buttonPP.setAttribute("class", "bigpp Button");
             buttonPP.id =meme.memeName+"PP";
@@ -86,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             article.appendChild(buttonPP);
             article.appendChild(showPP);
             article.appendChild(buttonpp);
-            article.appendChild(memePic);
+            article.appendChild(memeWindow);
             article.appendChild(commentButton);
             article.appendChild(shareButton);
             article.appendChild(deleteButton);
