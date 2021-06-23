@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.memeTag2 = memeTag2;
             this.memeTag3 = memeTag3;
             this.PP = 0;
+
         }
 
 
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             let mainNode = document.getElementById("inspiration");
             let article = document.createElement("article");
+            article.id = "article"+meme.id;
             //let articleNode = document.createElement("lll"); // if its empty it does not work :(
             // article.appendChild(articleNode);
 
@@ -73,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             let deleteButton = document.createElement("BUTTON");
             deleteButton.setAttribute("class", "delete Button");
             deleteButton.id =meme.memeName +"deleteButton";
+            deleteButton.addEventListener("click", event => deleteMeme(meme.id));
             deleteButton.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
 
 
@@ -94,21 +97,39 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
     function incrementValue(meme) {
-       // console.log(meme.PP);
+       console.log(meme.PP);
        // console.log(meme.memeID);
-        meme.PP = meme.PP +1;
-        let amount =   document.getElementById(meme.id+"node") ;
-
+            meme.PP = meme.PP + 1;
+            let amount = document.getElementById(meme.id+"node");
         amount.innerHTML = meme.PP;
     }
 
-    function decrementValue(meme, memeName) {
-        if(meme.PP >= 1){
+    function decrementValue(meme) {
         meme.PP = meme.PP -1;
         let amount =   document.getElementById(meme.id+"node") ;
         amount.innerHTML = meme.PP;
-    }}
+    }
 
+
+    function deleteMeme(id){
+        alert("meme got deleted");
+        let removeMeme = document.getElementById("article"+id);
+        removeMeme.remove();
+
+        let url = "http://localhost:3000/api/v1/meme/"+id;
+
+        let opts = {
+            method: 'DELETE',
+            headers: {}
+        };
+        fetch(url, opts).then(function (response){
+           // alert(response.json());
+        }).catch(function (error){
+           // alert(error);
+        });
+
+
+    }
     const memeMeme = new Meme();
 
    /* let memeFakenews = [];
@@ -214,23 +235,32 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         //   console.log(category);
 
+
+
         let titleElement = document.createElement("h1");
         let categoryNode = document.createTextNode(category);
         titleElement.appendChild(categoryNode);
         div.appendChild(titleElement);
 
-        //an Url wird category angehängt
-        let url = "http://localhost:3000/api/v1/meme?category="+category;
-        console.log(url);
-        let myObject = await fetch(url);
+        if(category ==="daily_cat_facts"){
+            let catFacts = document.createElement("h2");
+            let fact = getDailyCatFact();
+            let catFactNode = document.createTextNode(await fact);
+            catFacts.appendChild(catFactNode);
+            div.appendChild(catFacts);
 
+        }
+
+
+        //an Url wird category angehängt
+       let url = "http://localhost:3000/api/v1/meme?category="+category;
+       // console.log(url);
+        let myObject = await fetch(url);
         let memes = await myObject.json();
 
-        console.log(memes.length);
-        //  for (let i = 0; i < memes.length; i++) {
-        for (let i = 0; i < 10; i++) {
-            console.log(memes[i]);
-            console.log(memes);
+          for (let i = 0; i < memes.length; i++) {
+           // console.log(memes[i]);
+            //console.log(memes);
             memeMeme.addMemeToScreen(memes[i]);
         }
     }
@@ -244,6 +274,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
                   position ++;
               }
         }
+    }
+
+    async function getDailyCatFact(){
+        //get daily cat fact as String
+        let url2 = "https://cat-fact.herokuapp.com/facts";
+        console.log(url2);
+        let myObject2 = await fetch(url2);
+        let quote = await myObject2.json();
+        let catFact = quote[1];
+        let realFact = catFact.text;
+        console.log(realFact);
+
+        return realFact;
+
     }
 
 
@@ -264,5 +308,5 @@ document.addEventListener("DOMContentLoaded", function (event) {
     document.getElementById("znarfNAV").onclick = function() {fillTheScreen( "znarf")};
     document.getElementById("bad_hair_dayNAV").onclick = function() {fillTheScreen( "bad_hair_day")};
 
-
+   // module.exports = Meme;
 });

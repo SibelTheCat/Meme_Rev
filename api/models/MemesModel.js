@@ -5,8 +5,16 @@ var memesArray = [];
 
 class MemesModel {
     static getMemes() {
+
+        return new Promise(function(resolve, reject) {
+            con.query("SELECT * FROM memes", function(err, result) {
+                if (err) throw err;
+                resolve(result);
+            });
+
+        });
         //let memesArray = [];
-        con.query("SELECT * FROM memes", function (err, result, fields) {
+        /*con.query("SELECT * FROM memes", function (err, result, fields) {
             if (err) throw err;
 
 //https://www.tutorialkart.com/nodejs/nodejs-mysql-result-object/
@@ -15,7 +23,7 @@ class MemesModel {
                 memesArray.push(result[key]);
             });
 
-        });
+        });*/
         console.log(memesArray);
 
         return memesArray;
@@ -28,13 +36,16 @@ class MemesModel {
 
 
     static createMeme(meme) {
-
-        var sql = "INSERT INTO memes (memeCategory, memeName, memePic, memeDescription, memeTag1, memeTag2, memeTag3, PP) VALUES (meme.memeCategory, meme.memeName, meme.memePic, meme.memeDescription, meme.memeTag1, meme.memeTag2, meme.memeTag3, 0)";
-        con.query(sql, function (err, result) {
-            if (err) throw err;
-            console.log("1 record inserted");
+      //  console.log("meme arrived"+ meme);
+        return new Promise(function(resolve, reject) {
+            var sql = "INSERT INTO memes (memeCategory, memeName, memePic, memeDescription, memeTag1, memeTag2, memeTag3, PP) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            let values = [meme.memeCategory, meme.memeName, meme.memePic, meme.memeDescription, meme.memeTag1, meme.memeTag2, meme.memeTag3, 0]
+            //Treiber ersetzt ? durch Values
+            con.query(sql, values, function (err, result) {
+                if (err) throw err;
+                resolve("1 record inserted");
+            });
         });
-
       /*  memes.set(memeId.toString(), {
 
             memeCategory : meme.memeCategory,
@@ -72,19 +83,31 @@ class MemesModel {
     }
     static deleteMemeById(id) {
 
-        return memes.delete(id);
+        return new Promise(function(resolve, reject) {
 
+            //Sql Abfrage nach Category. Nache Where kommt Spalte
+            const QUERY =   "DELETE FROM memes WHERE id = ?";
 
-    }
+            con.query(QUERY, [id], function(err, result) {
+                if (err) throw err;
+                resolve("deleted meme with id:" +id);
+            });
+
+        });
+
+        }
     static findMemesByCategory(category){
 
-        let allMemes = this.getMemes();
-        let memesCatArray = [];
-        for (let meme of allMemes) {
-         if(meme.memeCategory===category)
-         { memesCatArray.push(meme);}
-        }
-        return memesCatArray;
+        return new Promise(function(resolve, reject) {
+
+            //Sql Abfrage nach Ctegory. Nache Where kommt Spalte
+            const QUERY =   "SELECT * FROM memes WHERE memeCategory = '"+category+"'";
+            con.query(QUERY, function(err, result) {
+                if (err) throw err;
+                resolve(result);
+            });
+
+        });
 
 
 }

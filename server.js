@@ -1,7 +1,7 @@
 
 //libraries imported: express + body-parser
 const express = require('express');
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 const memeRoutes = require('./api/routes/MemeRoutes');
 // cors = Cross-Origin Resource Sharing
 const cors = require('cors')
@@ -15,8 +15,9 @@ const port = process.env.PORT || 3000;
 //routes get added-> we create our API route
 
 app.use(cors());
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+app.use(express.urlencoded({extended: true}));
+//middleware-> JSON wird in ein JS Objekt umgewandelt
+app.use(express.json());
 app.use('/api/v1/meme', memeRoutes);
 
 // Ruten werden automatisch dazugef.
