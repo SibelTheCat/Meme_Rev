@@ -1,36 +1,40 @@
-// Playlist ID 4 Pewdiepie Memereview: PLYH8WvNV1YEn_iiBMZiZ2aWugQfN1qVfM
+// 2. This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
 
-// API Schlüssel: AIzaSyAkcNZro-YwM4bRoUwyt3cjO7uITwVkdS0
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-
-function retrieveMyUploads() {
-    var results = YouTube.Channels.list('contentDetails', {mine: true});
-    for(var i in results.items) {
-        var item = results.items[i];
-        // Get the playlist ID, which is nested in contentDetails, as described in the
-        // Channel resource: https://developers.google.com/youtube/v3/docs/channels
-        var playlistId = item.contentDetails.relatedPlaylists.uploads;
-
-        var nextPageToken = '';
-
-        // This loop retrieves a set of playlist items and checks the nextPageToken in the
-        // response to determine whether the list contains additional items. It repeats that process
-        // until it has retrieved all of the items in the list.
-        while (nextPageToken != null) {
-            var playlistResponse = YouTube.PlaylistItems.list('snippet', {
-                playlistId: playlistId,
-                maxResults: 25,
-                pageToken: nextPageToken
-            });
-
-            for (var j = 0; j < playlistResponse.items.length; j++) {
-                var playlistItem = playlistResponse.items[j];
-                Logger.log('[%s] Title: %s',
-                    playlistItem.snippet.resourceId.videoId,
-                    playlistItem.snippet.title);
-
-            }
-            nextPageToken = playlistResponse.nextPageToken;
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '360',
+        width: '640',
+        videoId: 'pSOOt4-40gU',
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
         }
+    });
+}
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+    event.target.playVideo();
+}
+
+// 5. The API calls this function when the player's state changes.
+//    The function indicates that when playing a video (state=1),
+//    the player should play for six seconds and then stop.
+var done = false;
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+
+        done = true;
     }
+}
+function stopVideo() {
+    player.stopVideo();
 }

@@ -3,7 +3,10 @@ const MemesModel = require("../models/MemesModel");
 class MemeController {
     static memes_get_all(req, res) {
         let memes = [];
-        if (req.query.category) {
+        if(req.query.category === "meme of the day"){
+            memes =MemesModel.findMemesByTag();
+        }
+        else if (req.query.category) {
          memes = MemesModel.findMemesByCategory(req.query.category);
         }
         else {
@@ -18,12 +21,13 @@ class MemeController {
 
     static meme_get_by_id(req, res) {
         const {id} = req.params;
-        const getMeme = MemesModel.findMemesById(id);
-        if (getMeme) {
-            res.send(getMeme);
-        } else {
+        let meme = MemesModel.findMemesById(id)
+        meme.then(function (result){
+            res.send(result);
+        }).catch(function (error){
             res.status(404).send('Meme not found.');
-        }
+        });
+
     }
 
 

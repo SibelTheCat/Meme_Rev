@@ -228,12 +228,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         div.appendChild(titleElement);
 
         if(category ==="daily_cat_facts"){
-            let catFacts = document.createElement("h2");
-            let fact = getDailyCatFact();
-            let catFactNode = document.createTextNode(await fact);
-            catFacts.appendChild(catFactNode);
-            div.appendChild(catFacts);
-
+            getDailyCatFact();
         }
 
 
@@ -249,27 +244,37 @@ document.addEventListener("DOMContentLoaded", function (event) {
             memeMeme.addMemeToScreen(memes[i]);
         }
     }
+    function getDailyCatFact(){
 
+         let url2 = "https://cat-fact.herokuapp.com/facts";
 
-    async function getDailyCatFact(){
-        //get daily cat fact as String
-        let url2 = "https://cat-fact.herokuapp.com/facts";
-        console.log(url2);
-        let myObject2 = await fetch(url2);
-        //Wandelt Object von Json in Js um
-        let quote = await myObject2.json();
-        let catFact = quote[1];
-        let realFact = catFact.text;
-        console.log(realFact);
-
-        return realFact;
-
+        fetch(url2).then(function (response){
+            console.log(response);
+            if (!response.ok){throw new Error("404")}
+            return response.json()
+        })
+            .then(data=>fillDailyCat(data[1].text))
+            .catch(function (error){
+                console.log(error);
+                fillDailyCat("Katzen sehen sich pro Tag 520 Memes an");
+            });
     }
 
 
-    fillTheScreen("");
+    function fillDailyCat(catfact){
 
-    document.getElementById("homeNAV").onclick = function() {fillTheScreen("")};
+        let div = document.getElementById('catfact');
+        let catFacts = document.createElement("h2");
+
+            let catFactNode = document.createTextNode(catfact);
+            catFacts.appendChild(catFactNode);
+            div.appendChild(catFacts);
+    }
+
+
+    fillTheScreen("meme of the day");
+
+    document.getElementById("homeNAV").onclick = function() {fillTheScreen("meme of the day")};
     document.getElementById("fakenewsNAV").onclick = function() {fillTheScreen( "fakenews")};
     document.getElementById("idolsNAV").onclick = function() {fillTheScreen( "idols")};
     document.getElementById("none_humainNAV").onclick = function() {fillTheScreen( "nonHumain")};

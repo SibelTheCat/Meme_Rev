@@ -20,6 +20,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use('/api/v1/meme', memeRoutes);
 
+
 // Ruten werden automatisch dazugef.
 
 
