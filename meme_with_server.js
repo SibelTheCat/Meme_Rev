@@ -212,20 +212,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
         //  let memes = null;
         //  console.log(category);
         let div = document.getElementById('inspiration');
+        let div2 = document.getElementById('catfact');
+
+
         //Seite springt zur "youtube-Section"
         location.href = "#youtube_section";
-
+        while (div2.firstChild) {
+            div2.removeChild(div2.firstChild);
+        }
         while (div.firstChild) {
             //Seite wird wieder  geleert ->  //https://stackoverflow.com/questions/3450593/how-do-i-clear-the-content-of-a-div-using-javascript
             div.removeChild(div.firstChild);
         }
 
         //   console.log(category);
-
+        if(category !="daily_cat_facts"){
         let titleElement = document.createElement("h1");
         let categoryNode = document.createTextNode(category);
         titleElement.appendChild(categoryNode);
-        div.appendChild(titleElement);
+        div.appendChild(titleElement);}
 
         if(category ==="daily_cat_facts"){
             getDailyCatFact();
@@ -256,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             .then(data=>fillDailyCat(data[1].text))
             .catch(function (error){
                 console.log(error);
-                fillDailyCat("Katzen sehen sich pro Tag 520 Memes an");
+                fillDailyCat("cats look at about 500 memes a day");
             });
     }
 
@@ -264,11 +269,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
     function fillDailyCat(catfact){
 
         let div = document.getElementById('catfact');
+        let titleElement = document.createElement("h1");
+        titleElement.id = "dailyCatFact1";
+        let categoryNode = document.createTextNode("daily_cat_facts");
+        categoryNode.id = "dailyCatFact2";
+        titleElement.appendChild(categoryNode);
+
+        let article = document.createElement("article");
         let catFacts = document.createElement("h2");
 
             let catFactNode = document.createTextNode(catfact);
             catFacts.appendChild(catFactNode);
-            div.appendChild(catFacts);
+
+            article.appendChild(catFacts);
+            div.appendChild(titleElement);
+             div.appendChild(article);
     }
 
 
