@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
    // console.log(meme_tag1);
    // console.log(meme_tag2);
    // console.log(meme_tag3);
-    console.log(category);
+  //  console.log(category);
     }
 
 document.getElementById("sendButton").onclick = function() {sendButtonIsClicked()};

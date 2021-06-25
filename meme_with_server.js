@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     function deleteMeme(id){
         alert("meme got deleted");
         let removeMeme = document.getElementById("article"+id);
-        removeMeme.remove();
+
 
         let url = "http://localhost:3000/api/v1/meme/"+id;
 
@@ -195,8 +195,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
             headers: {}
         };
         fetch(url, opts).then(function (response){
-           // alert(response.json());
-        }).catch(function (error){
+            if(response.ok) {
+                //erst wenn es klappt wird das Objekt vom DOM gelöscht
+                removeMeme.remove();
+                // alert(response.json());
+            } }).catch(function (error){
            // alert(error);
         });
 
@@ -207,13 +210,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-    async function fillTheScreen(category) {
+     function fillTheScreen(category) {
 
-        //  let memes = null;
+
         //  console.log(category);
         let div = document.getElementById('inspiration');
         let div2 = document.getElementById('catfact');
-
 
         //Seite springt zur "youtube-Section"
         location.href = "#youtube_section";
@@ -240,29 +242,44 @@ document.addEventListener("DOMContentLoaded", function (event) {
         //an Url wird category angehängt
        let url = "http://localhost:3000/api/v1/meme?category="+category;
        // console.log(url);
-        let myObject = await fetch(url);
-        let memes = await myObject.json();
+       fetch(url).then(function(response){
+           if(!response.ok){
+               throw new Error(response.status.toString());
+           }
+           return response.json();
+       }).then(function(memes){
+           for (let i = 0; i < memes.length; i++) {
+               // console.log(memes[i]);
+               //console.log(memes);
+               memeMeme.addMemeToScreen(memes[i]);
+           }
 
-          for (let i = 0; i < memes.length; i++) {
-           // console.log(memes[i]);
-            //console.log(memes);
-            memeMeme.addMemeToScreen(memes[i]);
-        }
+       }).catch(function (error){
+           alert("could not load memes");
+       })
     }
+
     function getDailyCatFact(){
 
-         let url2 = "https://cat-fact.herokuapp.com/facts";
+        fillDailyCat("cats look at about 500 memes a day");
 
+      /*   let url2 = "https://cat-fact.herokuapp.com/facts";
+       //fetch ist ein Promises
         fetch(url2).then(function (response){
-            console.log(response);
-            if (!response.ok){throw new Error("404")}
+           // console.log(response);
+            //das fetch unterscheidet nicht welchen Statuscode ist habe, auch wenn 404 zurückkommt muss ich es manuell abfangen
+           // wenn Error geworfen wir geht das Programm weiter in die catch Funktion
+            if (!response.ok){throw new Error(response.status.toString())}
+            //Response ist auch ein promises
             return response.json()
         })
+            //Promises wird mit dem Datenobjekt resolved
+            //then wird eine Funktion übergeben, die data erhält und die Funktion fillDailyCat aufruft
             .then(data=>fillDailyCat(data[1].text))
             .catch(function (error){
-                console.log(error);
+               // console.log(error);
                 fillDailyCat("cats look at about 500 memes a day");
-            });
+            });*/
     }
 
 
@@ -306,3 +323,47 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
 });
+
+/*
+async function fillTheScreen(category) {
+
+
+    //  console.log(category);
+    let div = document.getElementById('inspiration');
+    let div2 = document.getElementById('catfact');
+
+
+    //Seite springt zur "youtube-Section"
+    location.href = "#youtube_section";
+    while (div2.firstChild) {
+        div2.removeChild(div2.firstChild);
+    }
+    while (div.firstChild) {
+        //Seite wird wieder  geleert ->  //https://stackoverflow.com/questions/3450593/how-do-i-clear-the-content-of-a-div-using-javascript
+        div.removeChild(div.firstChild);
+    }
+
+    //   console.log(category);
+    if(category !="daily_cat_facts"){
+        let titleElement = document.createElement("h1");
+        let categoryNode = document.createTextNode(category);
+        titleElement.appendChild(categoryNode);
+        div.appendChild(titleElement);}
+
+    if(category ==="daily_cat_facts"){
+        getDailyCatFact();
+    }
+
+
+    //an Url wird category angehängt
+    let url = "http://localhost:3000/api/v1/meme?category="+category;
+    // console.log(url);
+    let myObject = await fetch(url);
+    let memes = await myObject.json();
+
+    for (let i = 0; i < memes.length; i++) {
+        // console.log(memes[i]);
+        //console.log(memes);
+        memeMeme.addMemeToScreen(memes[i]);
+    }
+}*/

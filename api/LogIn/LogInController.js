@@ -2,43 +2,49 @@ const UserModel = require("./LogInModel");
 
 
 class LogInController {
+    static users_get_all(req, res) {
+        let users = [];
 
+        users = UserModel.getUser();
+
+        users.then(function (result){
+            res.send(result);
+            console.log(result);
+        });
+
+    }
 
     static user_get_by_id(req, res) {
         const {id} = req.params;
-        const getUser = UserModel.findUserById(id);
-        if (getUser) {
-            res.send(getUser);
-        } else {
+        let user = UserModel.findUsersById(id)
+        user.then(function (result){
+            res.send(result);
+        }).catch(function (error){
             res.status(404).send('User not found.');
-        }
-    }
-
-
-    static User_create_user(req, res) {
-        //
-        let  User =   req.body;
-        UserModel.createUser(User);
-       // console.log(meme);
-        res.status(201).send("User was created");
+        });
 
     }
 
-    static User_update_by_id(req, res) {
-        const {id} =   req.params.id;
-        let User =   req.body;
-        let updated = UserModel.updateUserById(id, user);
-        if (updated){
-            res.status(200).send("User was updated");
-        }
-        else {
-            res.status(404).send("User id does not exist, User was not updated");
-        }
+
+    static user_create(req, res) {
+
+        let  user =   req.body;
+        // console.log(JSON.stringify(meme));
+        //create Meme returns promise
+        let promise = UserModel.createUser(user);
+        // console.log(meme);
+
+        promise.then(function(message){
+            res.contentType("text/plain");
+            res.status(201).send(message);
+        }).catch(function(error){
+            res.status(500).send("Error, Meme was not created");
+        });
 
 
     }
+
 
 
 }
-
 module.exports = LogInController;

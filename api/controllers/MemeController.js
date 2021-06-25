@@ -1,10 +1,13 @@
 const MemesModel = require("../models/MemesModel");
 
 class MemeController {
+    //Parameter werden von express zu Verfügung gestellt
+    //ReQest und Response Objekte
+    //unterschiedliche Middleware können dort was hinzufügen
     static memes_get_all(req, res) {
         let memes = [];
         if(req.query.category === "meme of the day"){
-            memes =MemesModel.findMemesByTag();
+            memes = MemesModel.findMemesByTag();
         }
         else if (req.query.category) {
          memes = MemesModel.findMemesByCategory(req.query.category);
@@ -13,6 +16,9 @@ class MemeController {
             memes = MemesModel.getMemes();
         }
         //memes ist ein Promise
+        //ein Objekt das mir etwas verpricht
+        //die Funktion wird aufgerufen, wenn das Promise erfüllt ist
+        // das Programm geht inzwischen weiter
         memes.then(function (result){
             res.send(result);
         });

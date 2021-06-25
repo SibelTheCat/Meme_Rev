@@ -5,6 +5,18 @@ let con = require('../../Database/connection_online_database');
 class MemesModel {
     static getMemes() {
 
+        //Promise Objekt wird erstellt
+        //Die Parameter für ein Promises sind eine Funktion (im Konstruktor) die Funtktion
+        //erstelle ich direkt im Konstruktor.
+        //in der Funktion mache ich die Datenbankabfrage( con.query) dort gebe ich als Parameter die
+        //Querey an und wieder eine Callbackfunktion.
+        //Wenn die query abgeschlossen ist, wird die Callbackfunkton aufgerufen,
+        //in der Callbackfunktion prüfe ich ob ein Fehler aufgetreten ist. Wwenn kein Fehler geworfen wird,
+        //wird das Promise resolved.
+        //wenn das Promise resolved ist, wird die Funktion aufgerfuen in MemesController, wo ich .then habe.
+        //im result steht mein Abfrageergebnis als ein Array von rows.
+        //in jeder Row stehen die Felder vom Table
+
         return new Promise(function (resolve, reject) {
             con.query("SELECT * FROM meme2", function (err, result) {
                 if (err) throw err;
