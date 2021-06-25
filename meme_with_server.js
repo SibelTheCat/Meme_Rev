@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         fillDailyCat("cats look at about 500 memes a day");
 
-      /*   let url2 = "https://cat-fact.herokuapp.com/facts";
+     /*   let url2 = "https://cat-fact.herokuapp.com/facts";
        //fetch ist ein Promises
         fetch(url2).then(function (response){
            // console.log(response);

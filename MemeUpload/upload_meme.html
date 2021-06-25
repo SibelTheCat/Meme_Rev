@@ -21,57 +21,57 @@
 
             <p class = "Question_Category">Please choose a category for your meme:</p>
 
-                <label><input type="radio"value="fakenews"name="category"id="fakenews">
-                    fakenews</label>
-               <br> <label><input type="radio"value="idols"name="category"id="idols">
-                    idols</label>
-               <br> <label><input type="radio"value="none humain"name="category"id="none humain">
-                    none humain</label>
-                <br> <label><input type="radio"value="daily cat facts"name="category"id="daily cat facts">
-                    daily cat facts</label>
-                <br> <label><input type="radio"value="sciencebusters"name="category"id="sciencebusters">
-                    sciencebusters</label>
-                <br><label><input type="radio"value="hystorical"name="category"id="hystorical">
-                    hystorical</label>
-                <br> <label><input type="radio"value="minime-me"name="category"id="minime-me">
-                    minime-me</label>
-                <br><label><input type="radio"value="ikea-memes"name="category"id="ikea-memes">
-                    ikea-memes</label>
-                <br><label><input type="radio"value="trending"name="category"id="trending">
-                    trending</label>
-                <br><label><input type="radio"value="latest"name="category"id="latest">
-                    latest</label>
-                <br><label><input type="radio"value="best of"name="category"id="best of">
-                    best of</label>
-                <br> <label><input type="radio"value="znarf"name="category"id="znarf">
-                    znarf</label>
-                <br> <label><input type="radio"value="bad hair day"name="category"id="bad hair day">
-                    bad hair day</label>
+            <label><input type="radio"value="fakenews"name="category"id="fakenews">
+                fakenews</label>
+           <br> <label><input type="radio"value="idols"name="category"id="idols">
+                idols</label>
+           <br> <label><input type="radio"value="nonHumain"name="category"id="none humain">
+                none humain</label>
+            <br> <label><input type="radio"value="daily_cat_facts"name="category"id="daily cat facts">
+                daily cat facts</label>
+            <br> <label><input type="radio"value="sciencebusters"name="category"id="sciencebusters">
+                sciencebusters</label>
+            <br><label><input type="radio"value="hystorical"name="category"id="hystorical">
+                hystorical</label>
+            <br> <label><input type="radio"value="minime-me"name="category"id="minime-me">
+                minime-me</label>
+            <br><label><input type="radio"value="ikea-memes"name="category"id="ikea-memes">
+                ikea-memes</label>
+            <br><label><input type="radio"value="trending"name="category"id="trending">
+                trending</label>
+            <br><label><input type="radio"value="latest"name="category"id="latest">
+                latest</label>
+            <br><label><input type="radio"value="best_Of"name="category"id="best of">
+                best of</label>
+            <br> <label><input type="radio"value="znarf"name="category"id="znarf">
+                znarf</label>
+            <br> <label><input type="radio"value="bad_hair_day"name="category"id="bad hair day">
+                bad hair day</label>
 
-            <div class = "memeTitle">
-                <p>
-                    Please add the title of your meme<br>
-                    <input type="text" name="title" value="" placeholder="Enter meme-title"><br></p>
-            </div>
-            <div class ="memeTags">
-                <p>Please add description to your meme<br>
-                    Description <input type="text" name="description" value="" placeholder="Enter Description" ><br>
-                <p>Please add up to three tags for your meme<br>
-                    Tag 1 <input type="text" name="tag1" value="" placeholder="Enter Tag 1" ><br>
-                    Tag 2  <input type="text" name="tag1" value="" placeholder="Enter Tag 2"><br>
-                    Tag 3 <input type="text" name="tag1" value="" placeholder="Enter Tag 3"><br> </p>
-            </div>
+        <div class = "memeTitle">
+            <p>
+                Please add the title of your meme<br>
+                <input type="text" name="title" value="" placeholder="Enter meme-title"><br></p>
+        </div>
+        <div class ="memeTags">
+            <p>Please add description to your meme<br>
+                Description <input type="text" name="description" value="" placeholder="Enter Description" ><br>
+            <p>Please add up to three tags for your meme<br>
+                Tag 1 <input type="text" name="tag1" value="" placeholder="Enter Tag 1" ><br>
+                Tag 2  <input type="text" name="tag1" value="" placeholder="Enter Tag 2"><br>
+                Tag 3 <input type="text" name="tag1" value="" placeholder="Enter Tag 3"><br> </p>
+        </div>
 
-            <div class ="memeUpload">
-        <!--    https://www.webtrickshome.com/faq/how-to-display-uploaded-image-in-html-using-javascript-->
-                <p>Please upload your meme<br>
-                <input type="file"  accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;"></p>
-                <p><label for="file" class="btn" ><i class="fa fa-upload"></i>Upload Image</label></p>
-                <img id="output" width="200" />
-                <p id="picture_name"></p>
+        <div class ="memeUpload">
+    <!--    https://www.webtrickshome.com/faq/how-to-display-uploaded-image-in-html-using-javascript-->
+        <p>Please upload your meme<br>
+        <input type="file"  accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;"></p>
+        <p><label for="file" class="btn" ><i class="fa fa-upload"></i>Upload Image</label></p>
+        <img id="output" width="200" />
+        <p id="picture_name"></p>
 
-                </div>
-                <input id = "sendButton" name="submit" type="submit" value="Send">
+        </div>
+        <input id = "sendButton" name="submit" type="submit" value="Send">
         </article>
     </section>
 </form>
