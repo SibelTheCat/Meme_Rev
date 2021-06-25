@@ -173,7 +173,13 @@ section {
 #catfact {
     font-family: "pewdiepie";
     color: white;
+    width:90%;
 }
+
+#catfact h2  {
+    text-align: center;
+}
+
 
 /* All memes contained in separate articles (= grey box)*/
 article {

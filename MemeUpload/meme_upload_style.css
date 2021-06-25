@@ -12,6 +12,7 @@
 
 ::-webkit-scrollbar {
     width: 12px;
+    height: 11px;
     background-color: rgba(245, 245, 245, 0);
 }
 
@@ -19,14 +20,17 @@
 {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #5f5757;
+    background-color: rgba(130, 57, 57, 0.73);
+}
+/* make white corner box disappear (where scrollbars meet)*/
+::-webkit-scrollbar-corner {
+    background: rgba(0,0,0,0);
 }
 
 body {
     background-image: url("../pics/pewdsDesign.png");
     background-attachment: fixed;
     background-size: cover;
-    overflow: auto;
 }
 
 @font-face {
@@ -54,48 +58,33 @@ h1 {
 
 .upload {
     max-height: 200px;
-    top: 150px;
     z-index: 5;
-    position: center;
 }
 
 .surprised {
     max-height: 200px;
     float: right;
-    top: 150px;
     z-index: 5;
 }
 
 .Meme_Category {
-    padding-left: 20px;
-    top: 150px;
+    position: fixed;
+    overflow: auto;
+    top: 135px;
+    left: 30px;
+    bottom: 0;
+    right: 10px;
+    padding: 20px;
     font-family: 'Roboto', sans-serif;
     color: white;
-    padding-top: 150px;
-}
-
-article {
-    overflow: auto;
-    height: 500px;
-    width: 100%;
-}
-
-.memeTitle {
-    padding: 20px;
 }
 
 .memeTags {
-    padding: 20px;
     left: 20px;
 }
 
-.memeUpload {
-    left: 20px;
-    padding: 20px;
-}
-
-.memeUpload p {
-    padding-bottom: 10px;
+p {
+    padding: 10px;
 }
 
 .btn {
