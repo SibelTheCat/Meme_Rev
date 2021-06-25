@@ -10,7 +10,7 @@ class MemeController {
             memes = MemesModel.findMemesByTag();
         }
         else if (req.query.category) {
-         memes = MemesModel.findMemesByCategory(req.query.category);
+            memes = MemesModel.findMemesByCategory(req.query.category);
         }
         else {
             memes = MemesModel.getMemes();
@@ -40,10 +40,10 @@ class MemeController {
     static meme_create(req, res) {
 
         let  meme =   req.body;
-       // console.log(JSON.stringify(meme));
+        // console.log(JSON.stringify(meme));
         //create Meme returns promise
-       let promise = MemesModel.createMeme(meme);
-       // console.log(meme);
+        let promise = MemesModel.createMeme(meme);
+        // console.log(meme);
 
         promise.then(function(message){
             res.contentType("text/plain");
@@ -77,14 +77,14 @@ class MemeController {
         const {id} = req.params;
         console.log("deleting meme with id: "+ id);
         let deleted = MemesModel.deleteMemeById(id);
-       deleted.then(function(message){
+        deleted.then(function(message){
 
-               res.status(200).send(message);
+            res.status(200).send(message);
 
 
-       }).catch(function (error){
-           res.status(404).send(error);
-       });
+        }).catch(function (error){
+            res.status(404).send(error);
+        });
 
     }
 

@@ -102,7 +102,7 @@ class MemesModel {
 
     static findMemesByTag() {
 
-       let category = "pickle";
+        let category = "pickle";
 
         return new Promise(function (resolve, reject) {
 

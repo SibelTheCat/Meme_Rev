@@ -1,4 +1,3 @@
-
 let con = require('../../Database/connection_online_database');
 
 class LogInModel {
