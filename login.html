@@ -14,17 +14,17 @@
 <!--  https://www.w3schools.com/howto/howto_css_login_form.asp
 Alternative to being sent to a whole new site when logging in:
 Window popping up on main page; would close if you clicked anywhere outside the window
-Also: not sure what "label for=" is for - took the whole thing from w3schools -->
+ -->
     <form class="modal-content animate" action="auth" method="POST">
         <div class="imgcontainer">
             <img src="login_meme.jpg" alt="Avatar" class="avatar">
         </div>
 
         <div class="container">
-            <label for="username"><b>Username</b></label>
+            <label for=><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="username" required>
 
-            <label for="password"><b>Password</b></label>
+            <label for=><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="password" required>
 
             <button type="submit">Login</button>
@@ -34,9 +34,12 @@ Also: not sure what "label for=" is for - took the whole thing from w3schools --
         </div>
 
         <div class="container">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <p id = "signup"><a href="signup.html" onclick="window.open(this.href, 'signup', 'width=610,height=455'), window.close();return false">Sign up</a></p>
+            <button type="button" onclick="window.close();" class="cancelbtn">Cancel</button>
             <span class="psw">Forgot <a href="#">password?</a></span>
+
         </div>
+
     </form>
 
 </body>

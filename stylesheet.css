@@ -3,6 +3,8 @@
 /*  box-sizing: border-box;  */
 }
 
+/*  webkit = css extension
+    used for scrollbar design */
 ::-webkit-scrollbar-track
 {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -12,6 +14,7 @@
 
 ::-webkit-scrollbar {
     width: 12px;
+    height: 11px;
     background-color: rgba(245, 245, 245, 0);
 }
 
@@ -19,9 +22,14 @@
 {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #5f5757;
+    background-color: rgba(130, 57, 57, 0.73);
+}
+/* make white corner box disappear (where scrollbars meet)*/
+::-webkit-scrollbar-corner {
+    background: rgba(0,0,0,0);
 }
 
+/* body contains background picture */
 body {
     background-image: url("pics/pewdsDesign.png");
     background-attachment: fixed;
@@ -30,18 +38,21 @@ body {
 }
 /*
 https://www.w3schools.com/cssref/css3_pr_font-face_rule.asp
+font-face: 1) define font-family name; 2) define source (can be online or downloaded, like we did)
  */
 @font-face {
     font-family: pewdiepie;
     src: url("FEASFBRG.TTF");
 }
 
+/*
+Everything you see in black band on top; letter-spacing used because font is sticking together too much
+*/
 header {
     width: 100%;
     height: 120px;
     position: fixed;
     z-index: 1;
-    clear: both;
     top: 15px;
     text-align: center;
     font-family: "pewdiepie";
@@ -54,26 +65,28 @@ header {
     box-shadow: 0px 5px 5px rgba(33, 21, 21, 0.68);
 }
 
+/* addresses both clapping hand pictures in header*/
 .clappinghands {
     align-content: center;
     max-height: 50px;
 }
 
+/* defines the black nav box*/
 nav {
     position: fixed;
     width: 200px;
     top: 150px;
-    height: 70%;
+    bottom: 40px;
     background-color: black;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    left: 5px;
+    left: 10px;
     color: white;
     overflow: auto;
     z-index: 1;
     box-shadow: 0 4px 8px 0 rgba(43, 33, 33, 0.62), 0 6px 20px 0 rgba(36, 26, 26, 0.4);
+    box-sizing: border-box;
 }
 
+/* category header moved up*/
 nav h2 {
     padding-left: 10px;
     position: fixed;
@@ -83,11 +96,13 @@ nav h2 {
     font-family: "pewdiepie";
 }
 
+/* define styling of list: no bullet points, text in one line*/
 nav ul {
     list-style: none;
-    top: 115px;
-    position: fixed;
+    white-space: nowrap;
+    padding: 5px 20px;
 }
+
 li button {
     box-shadow: 3px 4px 0px 0px #57100b;
     background:linear-gradient(to bottom, #000000 100%, #ff1a05 5%);
@@ -109,15 +124,19 @@ li button:hover {
     background-color: #000000;
 }
 
-nav li:nth-child(1) {
-    visibility: hidden;
-}
+/* added tiny brofists*/
 nav li {
     background: url("pics/pewdiepie-brofist-transparent-pewdiepie-logo-hd-png-download.png") no-repeat left center;
     background-size: 20px;
     height: 15px;
     padding: 10px 20px;
 }
+
+/* link to upload form not underlined*/
+nav a {
+    text-decoration: none;
+    color: white;
+    font-family: "pewdiepie"}
 
 main {
     position: fixed;
@@ -130,30 +149,51 @@ main {
     padding-bottom: 20px;
 }
 
-section {
-    padding-top: 20px;
+/* Youtube Video - don't know how to size properly*/
+#youtube_section {
+    /* SIZING: WHAT DO????*/
+
+
+
+}
+#player {
+    /* SIZING: WHAT DO????*/
+
+
+
 }
 
+/* all things in the middle are in section*/
+section {
+    padding-top: 20px;
+    width: 90%;
+}
+
+/* was created in the end; has to be addressed separately*/
+#catfact {
+    font-family: "pewdiepie";
+    color: white;
+}
+
+/* All memes contained in separate articles (= grey box)*/
 article {
     box-sizing: border-box;
     border-radius: 15px;
-    width: 50%;
-    padding-bottom: 20px;
+    width: 90%;
+    height: auto;
+    padding-bottom: 10px;
     padding-left: 10px;
     padding-top: 10px;
     background-color: #282828;
     margin-bottom: 20px;
-    margin-left: 25%;
+    margin-left: 120px;
     text-align: left;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     color: #888888;
 }
 
-article p {
-    padding-left: 10px;
-}
-
+/* Addressing all buttons in grey meme box (PP, comment, share, delete)*/
 .Button {
     z-index: 5;
     background: transparent;
@@ -165,6 +205,7 @@ article p {
     cursor:pointer;
 }
 
+/* Addresses meme category header*/
 #inspiration > h1 {
     font-family: "pewdiepie";
     color: white;
@@ -172,43 +213,34 @@ article p {
     letter-spacing: 2px;
 }
 
+/* addresses meme pictures*/
 section img {
     max-width: 50%;
-    alignment: center;
-    text-align: center;
+    height: auto;
 }
 
+/* Addresses PP counter*/
+article p:nth-child(4) {
+    margin-left: 10px;
+}
+/* white window containing image*/
 .memeWindow {
     background-color: white;
     width: 70%;
     margin: 0 12%;
-
-}
-.memePicture {
-    width: initial;
-    height: initial;
-    display: block;
-    margin-left: 18%;
+    text-align: center;
 }
 
-aside {
-    position: fixed;
-    font-family: "Comic Sans MS";
-    float: right;
-    right: 25px;
-    top: 150px;
-    width: 200px;
-    height: 100%;
-    padding: 10px;
-    margin: 0;
-}
-
+/* Login fist size*/
 aside img {
     width: 150px;
 }
-
-aside.h2 {
-    position: center;
+.loginfist {
+    position: fixed;
+    top: 1.5%;
+    right: 3%;
+    transform: rotate(-20deg);
+    z-index: 1;
 }
 
 footer {
@@ -219,39 +251,11 @@ footer {
     height: 20px;
     line-height: 10px;
     position: fixed;
-    clear: both;
     bottom: 0;
     padding-top: 5px;
     color: white;
 }
 
-#log_in {
-    position: relative;
-    text-align: center;
-    z-index: 1;
-}
-
-.loginfist {
-    position: fixed;
-    top: 1.5%;
-    right: 3%;
-    transform: rotate(-20deg);
-}
-
-aside a { text-decoration: none; color: white}
-
-#signup {
-    color: white;
-    position: fixed;
-    font-family: "pewdiepie";
-    padding-top: 10px;
-}
-
-#upload_meme {
-    font-family: "pewdiepie";
-    position: fixed;
-    padding-top: 10px;
-}
 
 /* CSS 4 MEME GENERATOR START */
 
@@ -327,28 +331,33 @@ i{
     text-align: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1100px) {
 
     .clappinghands {
         max-width: 30px;
         max-height: 30px;
+
     }
     header {
         height: 80px;
         z-index: 1;
+        width: 100%;
+        white-space: nowrap;
     }
     header h1 {
         position: center;
         padding-top: 20px;
         padding-bottom: 0;
-        font-size: 45px;
+        font-size: 70%;
+        white-space: nowrap;
+        width: auto;
     }
     nav {
         box-sizing: border-box;
         width: 100%;
-        height: 40px;
+        height: 45px;
         position: fixed;
-        top: 102px;
+        top: 104px;
         left: 0;
         white-space: nowrap;
         text-align: right;
@@ -363,15 +372,13 @@ i{
     }
     ul {
         width: 100%;
-        overflow: scroll;
-        overflow-y: hidden;
         float: left;
-        height: 60px;
+        height: 30px;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-        padding: 0;
-        margin-top: -18px;
+        margin-top: -11px;
+
     }
     li {
         float: left;
@@ -379,23 +386,31 @@ i{
     }
 
     main {
-        top: 200px;
+        top: 150px;
         left: 0;
+    }
+
+    #player {
+        margin-left: 30px;
+
+    }
+    article{
+        margin-left: 30px;
     }
 
     .loginfist {
         position: fixed;
         margin-right: 0;
+        margin-top: 150px;
         transform: rotate(-20deg);
-        height: 10px;
     }
     #fist {
-        height: 50px;
-        width: 50px;
+        height: auto;
+        width: 90px;
     }
 
     textarea {
-
+        width: 50vw;
     }
     #main,img,#memes{
         width: 50vw;
@@ -404,6 +419,7 @@ i{
 
     #memes,img{
         height: 20vh;
+        width: auto;
     }
     .access a{
         display: block;

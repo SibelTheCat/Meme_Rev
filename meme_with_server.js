@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             memePicNode.setAttribute("class", "memePicture");
             memePic.appendChild(memePicNode);
 
-            // tryout
+            // white meme window
             let memeWindow = document.createElement("p");
             memeWindow.setAttribute("class", "memeWindow");
             memeWindow.appendChild(memePic);
