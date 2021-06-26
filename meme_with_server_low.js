@@ -44,9 +44,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
             description.appendChild(descriptionNode);
 
             let memePic = document.createElement("p");
+
             let memePicNode = document.createElement("IMG");
-            memePicNode.setAttribute("src", meme.memePic);
+            memePicNode.id ="memePic"+meme.id;
+            memePicNode.setAttribute("src", "pics/clapping-hands_1f44f.png");
             memePicNode.setAttribute("class", "memePicture");
+            memePic.addEventListener("click", event=> loadPic(meme.id));
             memePic.appendChild(memePicNode);
 
             // white meme window
@@ -103,6 +106,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
 
 
+
+
+    }
+    function loadPic(id){
+
+        document.getElementById("memePic"+id).src="pics/faust.png";
     }
     function incrementValue(meme) {
         //PP_helper makes shure, that PP can only go up max by 1
@@ -240,7 +249,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
         //an Url wird category angehängt
-       let url = "http://localhost:3000/api/v1/meme?category="+category;
+       let url = "http://localhost:3000/api/v1/meme/low?category="+category;
        // console.log(url);
        fetch(url).then(function(response){
            if(!response.ok){
