@@ -111,8 +111,39 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
     function loadPic(id){
 
-        document.getElementById("memePic"+id).src="pics/faust.png";
-    }
+        let opts = {
+            method: 'GET',
+            headers: {},
+
+        };
+        let url = "http://localhost:3000/api/v1/meme/low/"+ id;
+
+        let pic =""
+
+       pic = fetch(url, opts).then(function (response){
+            if(!response.ok) {
+                //erst wenn es klappt wird das Objekt vom DOM gelöscht
+                throw new Error(response.status.toString());
+
+
+            }return response.json(); }).then(function(memepic){
+               console.log(memepic);
+           document.getElementById("memePic"+id).src=memepic[0].memePic});
+
+       }
+
+
+   /* fetch(url).then(function(response){
+        if(!response.ok){
+            throw new Error(response.status.toString());
+        }
+        return response.json();
+    }).then(function(memes){
+        for (let i = 0; i < memes.length; i++) {
+            // console.log(memes[i]);
+            //console.log(memes);
+            memeMeme.addMemeToScreen(memes[i]);
+        }*/
     function incrementValue(meme) {
         //PP_helper makes shure, that PP can only go up max by 1
        if(meme.PP_helper <3){

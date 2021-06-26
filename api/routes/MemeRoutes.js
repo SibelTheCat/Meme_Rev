@@ -10,8 +10,9 @@ const LowController = require("../LowBandWidth/LowController");
 
 // 2 Parameter, 2. -> funktionsobj.
 
-memeRoutes.get('/low', LowController.memes_low);
 memeRoutes.get('/low/:id', LowController.meme_Pic_get_by_id);
+memeRoutes.get('/low', LowController.memes_low);
+
 
 
 memeRoutes.get('/auth/:id', LogInController.user_get_by_id);
