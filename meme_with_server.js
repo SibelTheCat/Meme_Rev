@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
     }
 
-    function getDailyCatFact() {
+    function getDailyCatFact(){
 
         let url2 = "https://cat-fact.herokuapp.com/facts";
         //fetch ist ein Promises

@@ -115,7 +115,6 @@ li button {
     font-family:Arial;
     font-size:13px;
     padding:5px 15px;
-    text-decoration:none;
     text-shadow:0px 1px 0px #3b100c;
 }
 
@@ -138,6 +137,7 @@ nav a {
     color: white;
     font-family: "pewdiepie"}
 
+/* fixed positions and sizing for main ensuring that memes won't come out on top of header*/
 main {
     position: fixed;
     overflow: auto;
@@ -278,9 +278,9 @@ footer {
 }
 
 #memes img {
-    position: relative;
-    width: 100%;
-    height:100%;
+    text-align: center;
+    width: auto;
+    height: 100%;
 }
 
 textarea{
@@ -303,11 +303,9 @@ textarea{
 }
 #upper{
     background: #ac0f0f;
-
 }
 #lower{
     background: black;
-    color: white;
 }
 #input{
     display: none;
@@ -342,7 +340,6 @@ i{
     .clappinghands {
         max-width: 30px;
         max-height: 30px;
-
     }
     header {
         height: 80px;
