@@ -118,13 +118,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         };
         let url = "http://localhost:3000/api/v1/meme/low/"+ id;
 
-        let pic =""
 
-       pic = fetch(url, opts).then(function (response){
+
+       fetch(url, opts).then(function (response){
             if(!response.ok) {
-                //erst wenn es klappt wird das Objekt vom DOM gelöscht
                 throw new Error(response.status.toString());
-
 
             }return response.json(); }).then(function(memepic){
                console.log(memepic);
@@ -133,17 +131,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
        }
 
 
-   /* fetch(url).then(function(response){
-        if(!response.ok){
-            throw new Error(response.status.toString());
-        }
-        return response.json();
-    }).then(function(memes){
-        for (let i = 0; i < memes.length; i++) {
-            // console.log(memes[i]);
-            //console.log(memes);
-            memeMeme.addMemeToScreen(memes[i]);
-        }*/
     function incrementValue(meme) {
         //PP_helper makes shure, that PP can only go up max by 1
        if(meme.PP_helper <3){
@@ -240,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 removeMeme.remove();
                 // alert(response.json());
             } }).catch(function (error){
-           // alert(error);
+
         });
 
 
@@ -363,46 +350,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 });
 
-/*
-async function fillTheScreen(category) {
 
-
-    //  console.log(category);
-    let div = document.getElementById('inspiration');
-    let div2 = document.getElementById('catfact');
-
-
-    //Seite springt zur "youtube-Section"
-    location.href = "#youtube_section";
-    while (div2.firstChild) {
-        div2.removeChild(div2.firstChild);
-    }
-    while (div.firstChild) {
-        //Seite wird wieder  geleert ->  //https://stackoverflow.com/questions/3450593/how-do-i-clear-the-content-of-a-div-using-javascript
-        div.removeChild(div.firstChild);
-    }
-
-    //   console.log(category);
-    if(category !="daily_cat_facts"){
-        let titleElement = document.createElement("h1");
-        let categoryNode = document.createTextNode(category);
-        titleElement.appendChild(categoryNode);
-        div.appendChild(titleElement);}
-
-    if(category ==="daily_cat_facts"){
-        getDailyCatFact();
-    }
-
-
-    //an Url wird category angehängt
-    let url = "http://localhost:3000/api/v1/meme?category="+category;
-    // console.log(url);
-    let myObject = await fetch(url);
-    let memes = await myObject.json();
-
-    for (let i = 0; i < memes.length; i++) {
-        // console.log(memes[i]);
-        //console.log(memes);
-        memeMeme.addMemeToScreen(memes[i]);
-    }
-}*/
