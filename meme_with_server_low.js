@@ -285,30 +285,36 @@ document.addEventListener("DOMContentLoaded", function (event) {
          //  alert("could not load memes");
        })
     }
-
-    function getDailyCatFact(){
-
-        fillDailyCat("cats look at about 500 memes a day");
-
-     /*   let url2 = "https://cat-fact.herokuapp.com/facts";
-       //fetch ist ein Promises
-        fetch(url2).then(function (response){
-           // console.log(response);
-            //das fetch unterscheidet nicht welchen Statuscode ist habe, auch wenn 404 zurückkommt muss ich es manuell abfangen
-           // wenn Error geworfen wir geht das Programm weiter in die catch Funktion
-            if (!response.ok){throw new Error(response.status.toString())}
-            //Response ist auch ein promises
-            return response.json()
+    function timeout(ms, promise) {
+        return new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                reject(new Error("timeout"))
+            }, ms)
+            promise.then(resolve, reject)
         })
-            //Promises wird mit dem Datenobjekt resolved
-            //then wird eine Funktion übergeben, die data erhält und die Funktion fillDailyCat aufruft
-            .then(data=>fillDailyCat(data[1].text))
-            .catch(function (error){
-               // console.log(error);
-                fillDailyCat("cats look at about 500 memes a day");
-            });*/
     }
 
+    function getDailyCatFact() {
+
+           let url2 = "https://cat-fact.herokuapp.com/facts";
+          //fetch ist ein Promises
+        timeout(1000, fetch(url2)).then(function (response){
+              // console.log(response);
+               //das fetch unterscheidet nicht welchen Statuscode ist habe, auch wenn 404 zurückkommt muss ich es manuell abfangen
+              // wenn Error geworfen wir geht das Programm weiter in die catch Funktion
+               if (!response.ok){throw new Error(response.status.toString())}
+               //Response ist auch ein promises
+               return response.json()
+           })
+               //Promises wird mit dem Datenobjekt resolved
+               //then wird eine Funktion übergeben, die data erhält und die Funktion fillDailyCat aufruft
+               .then(data=>fillDailyCat(data[1].text))
+               .catch(function (error){
+                  // console.log(error);
+                  // if (error instanceof AbortError);
+                   fillDailyCat("cats look at about 500 memes a day");
+               });
+     }
 
     function fillDailyCat(catfact){
 
