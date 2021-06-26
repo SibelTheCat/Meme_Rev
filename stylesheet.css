@@ -153,6 +153,8 @@ main {
 #youtube_section {
     /* SIZING: WHAT DO????*/
 
+    position: center;
+    height: 360px;
 
 
 }
@@ -160,7 +162,8 @@ main {
     /* SIZING: WHAT DO????*/
 
 
-
+    max-height: 100%;
+    max-width: 100%;
 }
 
 /* all things in the middle are in section*/
