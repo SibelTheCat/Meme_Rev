@@ -1,7 +1,27 @@
+
+
 const UserModel = require("./LogInModel");
 
 
 class LogInController {
+
+
+    static getLogin(req,res){
+        let  user =   req.body;
+
+        let promise = UserModel.GetLogin(user);
+
+
+        promise.then(function(message){
+            res.contentType("text/plain");
+            res.status(201).send(message);
+        }).catch(function(error){
+            res.status(500).send("Error, Meme was not created");
+        });
+    }
+
+
+
     static users_get_all(req, res) {
         let users = [];
 

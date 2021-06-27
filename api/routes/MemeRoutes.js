@@ -1,4 +1,11 @@
 const {Router} = require('express');
+const express = require('express');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const router = express.Router();
+const userMiddleware=require("../LogIn/user");
+
+const con =require('../../Database/connection_online_database')
 
 //Router wird aus expess Bib geladen und erstellt
 const memeRoutes = Router();
@@ -6,6 +13,7 @@ const memeRoutes = Router();
 const MemeController = require("../controllers/MemeController");
 const LogInController = require("../LogIn/LogInController");
 const LowController = require("../LowBandWidth/LowController");
+
 
 
 // 2 Parameter, 2. -> funktionsobj.
@@ -18,6 +26,7 @@ memeRoutes.get('/low', LowController.memes_low);
 memeRoutes.get('/auth/:id', LogInController.user_get_by_id);
 memeRoutes.get('/auth', LogInController.users_get_all);
 memeRoutes.post('/auth', LogInController.user_create);
+
 
 
 
@@ -36,13 +45,9 @@ memeRoutes.delete('/:id', MemeController.delete_meme_by_id);
 
 
 
+
+
 //ID 4 Login
-
-
-
-
-
-
 
 
 

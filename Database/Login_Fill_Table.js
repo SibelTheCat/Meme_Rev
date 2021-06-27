@@ -3,7 +3,7 @@ let con = require('./connection_online_database');
 con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    var sql = "INSERT INTO user (name, email, password) VALUES ?";
+    var sql = "INSERT INTO meme_user2 (name, email, password) VALUES ?";
     var values = [
         ['horst', 'test@test.at', '12test34!'],
     ]

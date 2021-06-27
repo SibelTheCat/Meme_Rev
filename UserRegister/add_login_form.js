@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         };
 
 
-        fetch('http://localhost:3000/api/v1/meme/auth', {
+        fetch('http://localhost:3000/api/v1/meme/sign-up', {
             method: 'POST',
 
             ///WICHTIG
@@ -25,12 +25,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
 
 
-
-        //console.log(meme_title);
-        // console.log(meme_tag1);
-        // console.log(meme_tag2);
-        // console.log(meme_tag3);
-        //  console.log(category);
     }
 
     document.getElementById("signup_submit").onclick = function() {sendButtonIsClicked()};
