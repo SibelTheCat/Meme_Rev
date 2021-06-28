@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         };
 
 
-        fetch('http://localhost:3000/api/v1/meme/sign-up', {
+        fetch('http://localhost:3000/api/v1/meme/auth', {
             method: 'POST',
 
             ///WICHTIG
